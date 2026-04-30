@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Side Table Survey | Berkeley Opening</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="topbar">
+        <p class="brand">Opening Soon</p>
+        <p class="location">Berkeley, California</p>
+      </header>
+
+      <section class="hero hero-tight">
+        <img src="./st-wordmark.png" alt="Side Table logo" class="hero-logo" />
+        <p class="eyebrow">Survey</p>
+        <h1>Tell us what you want on the menu.</h1>
+        <p class="intro">
+          This helps us decide drinks and food for opening week.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>Menu Survey Form</h2>
+        <form id="surveyForm" class="form">
+          <fieldset>
+            <legend>1) Are you more of a coffee drinker or tea drinker?</legend>
+            <label><input type="radio" name="primaryDrinker" value="Coffee drinker" required /> Coffee drinker</label>
+            <label><input type="radio" name="primaryDrinker" value="Tea drinker" required /> Tea drinker</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>2) Which are your top 2 coffee drinks?</legend>
+            <p class="hint">Select up to 2 options.</p>
+            <label><input type="checkbox" name="topCoffeeDrinks" value="Espresso" /> Espresso</label>
+            <label><input type="checkbox" name="topCoffeeDrinks" value="Americano" /> Americano</label>
+            <label><input type="checkbox" name="topCoffeeDrinks" value="Cappuccino" /> Cappuccino</label>
+            <label><input type="checkbox" name="topCoffeeDrinks" value="Latte" /> Latte</label>
+            <label><input type="checkbox" name="topCoffeeDrinks" value="Pour-over" /> Pour-over</label>
+            <label><input type="checkbox" name="topCoffeeDrinks" value="Cold brew" /> Cold brew</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>3) What are your favorite tea leaves?</legend>
+            <label><input type="checkbox" name="favoriteTeaLeaves" value="Pu ehr" /> Pu ehr</label>
+            <label><input type="checkbox" name="favoriteTeaLeaves" value="Yunnan Dian Hong" /> Yunnan Dian Hong</label>
+            <label><input type="checkbox" name="favoriteTeaLeaves" value="Jasmine" /> Jasmine</label>
+            <label><input type="checkbox" name="favoriteTeaLeaves" value="Lapsang" /> Lapsang</label>
+            <label><input type="checkbox" name="favoriteTeaLeaves" value="Camomille" /> Camomille</label>
+            <label><input type="checkbox" name="favoriteTeaLeaves" value="Mint" /> Mint</label>
+            <label><input type="checkbox" name="favoriteTeaLeaves" value="Chrysanthemum" /> Chrysanthemum</label>
+            <label><input type="checkbox" name="favoriteTeaLeaves" value="Osmanthus" /> Osmanthus</label>
+          </fieldset>
+
+          <label for="favoriteCakesFrom">4) Where are your favorite cakes from?</label>
+          <input
+            id="favoriteCakesFrom"
+            name="favoriteCakesFrom"
+            type="text"
+            placeholder="Bakery name or neighborhood"
+          />
+
+          <label for="favoriteFoodCategory">5) What are your favorite food items?</label>
+          <select id="favoriteFoodCategory" name="favoriteFoodCategory">
+            <option value="">Select one</option>
+            <option value="Salad">Salad</option>
+            <option value="Sandwiches">Sandwiches</option>
+            <option value="Burritos">Burritos</option>
+          </select>
+
+          <label for="favoriteFoodCustom">Add your own food item</label>
+          <input
+            id="favoriteFoodCustom"
+            name="favoriteFoodCustom"
+            type="text"
+            placeholder="Example: soup, tartine, quiche"
+          />
+
+          <button type="submit">Submit Survey</button>
+        </form>
+      </section>
+
+      <p class="footnote">
+        <a class="back-link" href="./index.html">Back to Mailing List</a>
+      </p>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
