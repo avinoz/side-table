@@ -40,7 +40,6 @@ body::before {
   justify-content: space-between;
   align-items: center;
   gap: 12px;
-  border-bottom: 1px solid #d8d2c4;
   padding-bottom: 14px;
 }
 
@@ -371,6 +370,9 @@ button:hover {
 }
 
 @media (max-width: 640px) {
+  .page {
+    overflow-x: hidden;
+  }
   .band {
     grid-template-columns: 1fr;
   }
@@ -379,8 +381,11 @@ button:hover {
     grid-template-columns: 1fr;
   }
 
+  .card.email {
+    margin-top: 250px;
+  }
+
   .topbar {
-    flex-direction: column;
     align-items: flex-start;
   }
 
@@ -390,8 +395,10 @@ button:hover {
   }
 
   .CTA {
-    position: static;
     width: min(100%, 320px);
     margin: 14px auto 0;
+    right: -100px;
+    top: 280px;
+
   }
 }
