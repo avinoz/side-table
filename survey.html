@@ -30,7 +30,7 @@
         <p class="eyebrow">Survey</p>
         <h1>Tell us what you'd want on the menu.</h1>
         <p class="intro">
-          This helps us decide drinks and food for opening week.
+          We'll try to make it happen!
         </p>
       </section>
 
@@ -45,7 +45,6 @@
 
           <fieldset>
             <legend>2) Which are your top 2 coffee drinks?</legend>
-            <p class="hint">Select up to 2 options.</p>
             <label><input type="checkbox" name="topCoffeeDrinks" value="Espresso" /> Espresso</label>
             <label><input type="checkbox" name="topCoffeeDrinks" value="Americano" /> Americano</label>
             <label><input type="checkbox" name="topCoffeeDrinks" value="Cappuccino" /> Cappuccino</label>
@@ -66,29 +65,34 @@
             <label><input type="checkbox" name="favoriteTeaLeaves" value="Osmanthus" /> Osmanthus</label>
           </fieldset>
 
-          <label for="favoriteCakesFrom">4) Where are your favorite cakes from?</label>
-          <input
-            id="favoriteCakesFrom"
-            name="favoriteCakesFrom"
-            type="text"
-            placeholder="Bakery name or neighborhood"
-          />
+          <div>
+            <label for="favoriteCakesFrom">4) Where are your favorite cakes from? Any particular flavor?</label>
+            <input
+              id="favoriteCakesFrom"
+              name="favoriteCakesFrom"
+              type="text"
+              placeholder="Bakery name or neighborhood"
+            />
+          </div>
 
-          <label for="favoriteFoodCategory">5) What are your favorite food items?</label>
-          <select id="favoriteFoodCategory" name="favoriteFoodCategory">
-            <option value="">Select one</option>
-            <option value="Salad">Salad</option>
-            <option value="Sandwiches">Sandwiches</option>
-            <option value="Burritos">Burritos</option>
-          </select>
+          <div>
+            <label for="favoriteFoodCategory">5) What are your favorite food items?</label>
+            <select id="favoriteFoodCategory" name="favoriteFoodCategory">
+              <option value="">Select one</option>
+              <option value="Salad">Salad</option>
+              <option value="Sandwiches">Sandwiches</option>
+              <option value="Burritos">Burritos</option>
+            </select>
+          </div>
 
-          <label for="favoriteFoodCustom">Add your own food item</label>
-          <input
-            id="favoriteFoodCustom"
-            name="favoriteFoodCustom"
-            type="text"
-            placeholder="Example: soup, tartine, quiche"
-          />
+          <div>
+            <label for="favoriteFoodCustom">Add your own food item</label>
+            <textarea
+              id="favoriteFoodCustom"
+              name="favoriteFoodCustom"
+              type="text"
+              placeholder="Example: soup, tartine, quiche"></textarea>
+          </div>
 
           <button type="submit">Submit Survey</button>
         </form>
