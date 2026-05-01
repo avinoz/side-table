@@ -29,70 +29,112 @@
         <img src="./st-wordmark.png" alt="Side Table logo" class="hero-logo" />
         <p class="eyebrow">Survey</p>
         <h1>Tell us what you'd want on the menu.</h1>
-        <p class="intro">
-          We'll try to make it happen!
-        </p>
+        <p class="intro">We'll try to make it happen! All questions are optional.</p>
       </section>
 
       <section class="card">
-        <h2>Menu Survey Form</h2>
+        <h2>Menu Survey</h2>
         <form id="surveyForm" class="form">
+          <label for="drinkerType">1. What kind of drinker are you?</label>
+          <select id="drinkerType" name="drinkerType">
+            <option value="">—</option>
+            <option value="Tea">Tea</option>
+            <option value="Coffee">Coffee</option>
+            <option value="Sweet drinks">Sweet drinks</option>
+          </select>
+
           <fieldset>
-            <legend>1) Are you more of a coffee or tea person?</legend>
-            <label><input type="radio" name="primaryDrinker" value="Coffee drinker" required /> Coffee drinker</label>
-            <label><input type="radio" name="primaryDrinker" value="Tea drinker" required /> Tea drinker</label>
+            <legend>2. Drinks I order most</legend>
+            <label><input type="checkbox" name="drinksOrdered" value="Drip" /> Drip</label>
+            <label><input type="checkbox" name="drinksOrdered" value="Cold brew" /> Cold brew</label>
+            <label><input type="checkbox" name="drinksOrdered" value="Latte" /> Latte</label>
+            <label><input type="checkbox" name="drinksOrdered" value="Cappuccino" /> Cappuccino</label>
+            <label><input type="checkbox" name="drinksOrdered" value="Flat white" /> Flat white</label>
+            <label><input type="checkbox" name="drinksOrdered" value="Chai latte" /> Chai latte</label>
+            <label><input type="checkbox" name="drinksOrdered" value="Matcha latte" /> Matcha latte</label>
+            <label><input type="checkbox" name="drinksOrdered" value="Mocha" /> Mocha</label>
+            <label><input type="checkbox" name="drinksOrdered" value="Syrup coffee" /> Syrup coffee</label>
+            <label><input type="checkbox" name="drinksOrdered" value="Refreshing Spritzer" /> Refreshing Spritzer</label>
+            <label><input type="checkbox" name="drinksOrdered" value="Protein Shake" /> Protein Shake</label>
+            <label><input type="checkbox" name="drinksOrdered" value="Smoothies" /> Smoothies</label>
           </fieldset>
 
           <fieldset>
-            <legend>2) Top 2 Coffee Drinks?</legend>
-            <label><input type="checkbox" name="topCoffeeDrinks" value="Espresso" /> Espresso</label>
-            <label><input type="checkbox" name="topCoffeeDrinks" value="Americano" /> Americano</label>
-            <label><input type="checkbox" name="topCoffeeDrinks" value="Cappuccino" /> Cappuccino</label>
-            <label><input type="checkbox" name="topCoffeeDrinks" value="Latte" /> Latte</label>
-            <label><input type="checkbox" name="topCoffeeDrinks" value="Pour-over" /> Pour-over</label>
-            <label><input type="checkbox" name="topCoffeeDrinks" value="Cold brew" /> Cold brew</label>
+            <legend>3. The teas I love most</legend>
+            <label><input type="checkbox" name="teasLoved" value="English Breakfast" /> English Breakfast</label>
+            <label><input type="checkbox" name="teasLoved" value="Earl Gray" /> Earl Gray</label>
+            <label><input type="checkbox" name="teasLoved" value="Pu ehr" /> Pu ehr</label>
+            <label><input type="checkbox" name="teasLoved" value="Yunnan Dian Hong" /> Yunnan Dian Hong</label>
+            <label><input type="checkbox" name="teasLoved" value="Jasmine" /> Jasmine</label>
+            <label><input type="checkbox" name="teasLoved" value="Lapsang" /> Lapsang</label>
+            <label><input type="checkbox" name="teasLoved" value="Camomille" /> Camomille</label>
+            <label><input type="checkbox" name="teasLoved" value="Chrysanthemum" /> Chrysanthemum</label>
+            <label><input type="checkbox" name="teasLoved" value="Osmanthus" /> Osmanthus</label>
+            <label><input type="checkbox" name="teasLoved" value="Fresh Mint" /> Fresh Mint</label>
+            <label><input type="checkbox" name="teasLoved" value="Lemon Balm" /> Lemon Balm</label>
+            <label><input type="checkbox" name="teasLoved" value="Hibiscus" /> Hibiscus</label>
           </fieldset>
 
           <fieldset>
-            <legend>3) Favorite teas?</legend>
-            <label><input type="checkbox" name="favoriteTeaLeaves" value="Pu ehr" /> Pu ehr</label>
-            <label><input type="checkbox" name="favoriteTeaLeaves" value="Yunnan Dian Hong" /> Yunnan Dian Hong</label>
-            <label><input type="checkbox" name="favoriteTeaLeaves" value="Jasmine" /> Jasmine</label>
-            <label><input type="checkbox" name="favoriteTeaLeaves" value="Lapsang" /> Lapsang</label>
-            <label><input type="checkbox" name="favoriteTeaLeaves" value="Camomille" /> Camomille</label>
-            <label><input type="checkbox" name="favoriteTeaLeaves" value="Mint" /> Mint</label>
-            <label><input type="checkbox" name="favoriteTeaLeaves" value="Chrysanthemum" /> Chrysanthemum</label>
-            <label><input type="checkbox" name="favoriteTeaLeaves" value="Osmanthus" /> Osmanthus</label>
+            <legend>4. My go-to breakfast food items include</legend>
+            <label><input type="checkbox" name="breakfastItems" value="Savory Pastry" /> Savory Pastry</label>
+            <label><input type="checkbox" name="breakfastItems" value="Sweet Pastry" /> Sweet Pastry</label>
+            <label><input type="checkbox" name="breakfastItems" value="Granola" /> Granola</label>
+            <label><input type="checkbox" name="breakfastItems" value="Oatmeal" /> Oatmeal</label>
+            <label><input type="checkbox" name="breakfastItems" value="Boiled Eggs" /> Boiled Eggs</label>
+            <label><input type="checkbox" name="breakfastItems" value="Fresh Fruit" /> Fresh Fruit</label>
+            <label><input type="checkbox" name="breakfastItems" value="Toast Bagel" /> Toast Bagel</label>
+            <label><input type="checkbox" name="breakfastItems" value="Avocado Toast" /> Avocado Toast</label>
+            <label><input type="checkbox" name="breakfastItems" value="Breakfast sandwich" /> Breakfast sandwich</label>
+            <label><input type="checkbox" name="breakfastItems" value="Breakfast Burrito" /> Breakfast Burrito</label>
           </fieldset>
 
-          <div>
-            <label for="favoriteCakesFrom">4) Where are your favorite cakes from? Any particular flavor?</label>
-            <input
-              id="favoriteCakesFrom"
-              name="favoriteCakesFrom"
-              type="text"
-              placeholder="Bakery name and flavor"
-            />
-          </div>
+          <fieldset>
+            <legend>5. The lunch items I order most</legend>
+            <label><input type="checkbox" name="lunchItems" value="Ceasar Salad" /> Ceasar Salad</label>
+            <label><input type="checkbox" name="lunchItems" value="Cobb Salad" /> Cobb Salad</label>
+            <label><input type="checkbox" name="lunchItems" value="Spring Salad" /> Spring Salad</label>
+            <label><input type="checkbox" name="lunchItems" value="Beet Salad" /> Beet Salad</label>
+            <label><input type="checkbox" name="lunchItems" value="Goat Cheese Salad" /> Goat Cheese Salad</label>
+            <label><input type="checkbox" name="lunchItems" value="Grilled chicken Salad" /> Grilled chicken Salad</label>
+            <label><input type="checkbox" name="lunchItems" value="Caprese Panini" /> Caprese Panini</label>
+            <label><input type="checkbox" name="lunchItems" value="Chicken Pesto Panini" /> Chicken Pesto Panini</label>
+            <label><input type="checkbox" name="lunchItems" value="Cheesesteak Panini" /> Cheesesteak Panini</label>
+            <label><input type="checkbox" name="lunchItems" value="Tuna Melt Panini" /> Tuna Melt Panini</label>
+          </fieldset>
 
-          <div>
-            <label for="favoriteFoodCategory">5) What are your favorite food items?</label>
-            <select id="favoriteFoodCategory" name="favoriteFoodCategory">
-              <option value="">Select one</option>
-              <option value="Salad">Salad</option>
-              <option value="Sandwiches">Sandwiches</option>
-              <option value="Burritos">Burritos</option>
-            </select>
-          </div>
+          <fieldset>
+            <legend>6. Favorite flavor of cakes</legend>
+            <label><input type="checkbox" name="cakeFlavors" value="Tiramisu" /> Tiramisu</label>
+            <label><input type="checkbox" name="cakeFlavors" value="German Chocolate" /> German Chocolate</label>
+            <label><input type="checkbox" name="cakeFlavors" value="Mango Mousse" /> Mango Mousse</label>
+            <label><input type="checkbox" name="cakeFlavors" value="Carrot Cake" /> Carrot Cake</label>
+            <label><input type="checkbox" name="cakeFlavors" value="Lemon Ricotta Cake" /> Lemon Ricotta Cake</label>
+            <label><input type="checkbox" name="cakeFlavors" value="Birthday Cake" /> Birthday Cake</label>
+            <label><input type="checkbox" name="cakeFlavors" value="Red Velvet" /> Red Velvet</label>
+            <label><input type="checkbox" name="cakeFlavors" value="Crepe Cakes" /> Crepe Cakes</label>
+            <label><input type="checkbox" name="cakeFlavors" value="Coconut Chiffon" /> Coconut Chiffon</label>
+            <label><input type="checkbox" name="cakeFlavors" value="Orange-Cardamom Olive" /> Orange-Cardamom Olive</label>
+            <label><input type="checkbox" name="cakeFlavors" value="Mille Feuille" /> Mille Feuille</label>
+            <label><input type="checkbox" name="cakeFlavors" value="Strawberry Shortcake" /> Strawberry Shortcake</label>
+          </fieldset>
 
-          <div>
-            <label for="favoriteFoodCustom">6) Any other requests</label>
-            <textarea
-              id="favoriteFoodCustom"
-              name="favoriteFoodCustom"
-              type="text"
-              placeholder="Example: dietary restrictions, soup, tartine, quiche"></textarea>
-          </div>
+          <label for="favoriteShops">7. Which Cake or Pastry shops do you love? Any particular flavors?</label>
+          <textarea
+            id="favoriteShops"
+            name="favoriteShops"
+            rows="2"
+            placeholder="Shop or buisnesses, flavors, notes…"
+          ></textarea>
+
+          <label for="dietaryRestrictions">8. Any dietary restrictions?</label>
+          <textarea id="dietaryRestrictions" name="dietaryRestrictions" rows="1" placeholder="Nuts, Kiwi... none!"></textarea>
+
+          <label for="cafeElse">9. What else would you want in a cafe?</label>
+          <textarea id="cafeElse" name="cafeElse" rows="3" placeholder="Happy smiles, plugs, specific food items, "></textarea>
+
+          <label for="contactInfo">10. Tell us who you are? Email is best but a name would also be great!</label>
+          <textarea id="contactInfo" name="contactInfo" rows="1" placeholder="hello@sidetablecoffee.com"></textarea>
 
           <button type="submit">Submit Survey</button>
         </form>

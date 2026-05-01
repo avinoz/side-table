@@ -40,7 +40,6 @@ body::before {
   justify-content: space-between;
   align-items: center;
   gap: 12px;
-  padding-bottom: 14px;
 }
 
 .brand {
@@ -53,7 +52,7 @@ body::before {
 .topbar-logo {
   display: block;
   width: auto;
-  height: 30px;
+  height: 60px;
   filter: none;
 }
 
@@ -128,6 +127,16 @@ h1 {
   font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.14em;
+}
+
+.card-cont {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.card.email {
+  width: 700px;
 }
 
 .card {
@@ -413,7 +422,11 @@ button:hover {
   }
 
   .topbar {
-    align-items: flex-start;
+    align-items: center;
+  }
+  
+  .topbar-logo {
+    height: 40px;
   }
 
   .hero {
