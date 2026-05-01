@@ -4,55 +4,60 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Side Table Coffee | Coming Soon in Berkeley</title>
+    <link rel="icon" type="image/png" href="./favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Knewave&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
+    <video class="bg-video" autoplay muted loop playsinline>
+      <source src="./st-bg.mp4" type="video/mp4" />
+    </video>
     <main class="page">
       <header class="topbar">
-        <p class="brand">Opening Soon</p>
-        <p class="location">Berkeley, California</p>
+        <a href="./index.html" aria-label="Back to home">
+          <img src="./st-logo.png" alt="ST logo" class="topbar-logo" />
+        </a>
+        <p class="location">Coming Soon to Berkeley</p>
       </header>
 
       <section class="hero">
         <img src="./st-wordmark.png" alt="Side Table logo" class="hero-logo" />
         <p class="eyebrow">Opening Soon</p>
-        <h1>We're here, between friends.</h1>
+        <h1>We're here,<br> between friends.&nbsp;&nbsp;&nbsp;</h1>
         <p class="intro">
           Side Table is a new coffee shop opening in Berkeley. We are building a
           focused menu around quality, hospitality, and daily ritual. Join the
           list for early invites and opening updates.
         </p>
+        <section class="CTA">
+          <a class="cta-link" href="./survey.html" aria-label="Help shape our menu">
+            <span class="cta-line cta-line-top">Help Shape</span>
+            <span class="cta-line cta-line-middle">Our</span>
+            <span class="cta-line cta-line-bottom">Menu</span>
+          </a>
+        </section>
       </section>
-
-      <section class="card">
-        <h2>Join the Email List</h2>
-        <p>Get first access to opening announcements and special events.</p>
-        <form id="emailForm" class="form">
-          <label for="email">Email address</label>
-          <div class="row">
-            <input
-              id="email"
-              name="email"
-              type="email"
-              placeholder="you@example.com"
-              required
-            />
-            <button type="submit">Sign Up</button>
-          </div>
-        </form>
-      </section>
-
-      <section class="card">
-        <h2>Help Shape the Menu</h2>
-        <p>Take our short survey and tell us what we should serve on day one.</p>
-        <a class="cta-link" href="./survey.html">Take the Survey</a>
-      </section>
+        <section class="card">
+          <h2>Be in the Know</h2>
+          <form id="emailForm" class="form">
+            <label for="email">Email address</label>
+            <div class="row">
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="you@example.com"
+                required
+              />
+              <button type="submit">Inform Me</button>
+            </div>
+          </form>
+        </section>
 
       <p class="footnote">
         Side Table Coffee • Berkeley, CA • Coming 2026
