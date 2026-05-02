@@ -115,9 +115,8 @@ body {
   height: 44px;
   margin-left: auto;
   padding: 0;
-  border: 1px solid rgba(26, 26, 26, 0.2);
-  border-radius: 4px;
-  background: rgba(255, 255, 255, 0.65);
+  background: transparent;
+  border: none;
   cursor: pointer;
   color: #1a1a1a;
 }
@@ -363,8 +362,6 @@ h1 {
   letter-spacing: 0.02em;
   color: #303030;
   text-shadow: none;
-  /* text-transform: uppercase; */
-  /* font-family: "Knewave", "Inter", Arial, sans-serif; */
   font-family: "Over the Rainbow", "Inter", Arial, sans-serif;
   letter-spacing: 0.1em;
 }
@@ -705,6 +702,10 @@ button:hover {
     --site-header-h: 64px;
   }
 
+  .page {
+    overflow: hidden;
+  }
+
   .site-nav ul {
     margin: 0;
   }
@@ -809,6 +810,14 @@ button:hover {
     max-width: 780px;
     padding-right: 0;
     margin-top: 10px;
+  }
+
+  h1 {
+    font-size: 3.2rem;
+    width: 110vw;
+    margin-left: -10vw;
+    margin-bottom: 30px;
+    rotate: -4deg;
   }
 
   .CTA-container {
