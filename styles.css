@@ -790,9 +790,15 @@ button:hover {
   .site-header-inner {
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: nowrap;
     max-width: initial;
+    button {
+      margin-left: 0;
+      position: fixed;
+      right: 10px;
+      top: 10px;
+    }
   }
 
   .site-nav-drawer {
@@ -869,14 +875,18 @@ button:hover {
   }
   .hero-text {
     width: 110vw;
-    margin-left: -8vw;
+    margin-left: -10vw;
     justify-content: center;
     min-height: 200px;
   }
   h1 {
-    font-size: clamp(3rem, 10.2vw, 5rem);
+    font-size: clamp(5rem, 10.2vw, 9rem);
     margin-bottom: 30px;
+    font-weight: 700;
     rotate: -4deg;
+    letter-spacing: 0em;
+    line-height: .8;
+    font-family: "Caveat", "Inter", Arial, sans-serif;
   }
 
   .CTA-container {
