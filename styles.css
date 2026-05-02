@@ -212,6 +212,20 @@ fieldset {
   gap: 8px;
 }
 
+.q-cont {
+  select,
+  textarea {
+    margin-top: 10px;
+    border: solid 1px rgb(212, 110, 14);
+  }
+
+  /* Hide default arrow */
+  select {
+    appearance: none;
+    -webkit-appearance: none;
+  }
+}
+
 fieldset label {
   align-items: flex-start;
   justify-content: flex-start;

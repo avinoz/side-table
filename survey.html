@@ -35,13 +35,15 @@
       <section class="card">
         <h2>Menu Survey</h2>
         <form id="surveyForm" class="form">
-          <label for="drinkerType">1. What kind of drinker are you?</label>
-          <select id="drinkerType" name="drinkerType">
-            <option value="">—</option>
-            <option value="Tea">Tea</option>
-            <option value="Coffee">Coffee</option>
-            <option value="Sweet drinks">Sweet drinks</option>
-          </select>
+          <div class="q-cont">
+            <label for="drinkerType">1. What kind of drinker are you?</label>
+            <select id="drinkerType" name="drinkerType">
+              <option value="">—</option>
+              <option value="Tea">Tea</option>
+              <option value="Coffee">Coffee</option>
+              <option value="Sweet drinks">Sweet drinks</option>
+            </select>
+          </div>
 
           <fieldset>
             <legend>2. Drinks I order most</legend>
@@ -119,22 +121,30 @@
             <label><input type="checkbox" name="cakeFlavors" value="Strawberry Shortcake" /> Strawberry Shortcake</label>
           </fieldset>
 
-          <label for="favoriteShops">7. Which Cake or Pastry shops do you love? Any particular flavors?</label>
-          <textarea
-            id="favoriteShops"
-            name="favoriteShops"
-            rows="2"
-            placeholder="Shop or buisnesses, flavors, notes…"
-          ></textarea>
+          <div class="q-cont">
+            <label for="favoriteShops">7. Which Cake or Pastry shops do you love? Any particular flavors?</label>
+            <textarea
+              id="favoriteShops"
+              name="favoriteShops"
+              rows="2"
+              placeholder="Shop or buisnesses, flavors, notes…"
+            ></textarea>
+          </div>
 
-          <label for="dietaryRestrictions">8. Any dietary restrictions?</label>
-          <textarea id="dietaryRestrictions" name="dietaryRestrictions" rows="1" placeholder="Nuts, Kiwi... none!"></textarea>
+          <div class="q-cont">
+            <label for="dietaryRestrictions">8. Any dietary restrictions?</label>
+            <textarea id="dietaryRestrictions" name="dietaryRestrictions" rows="1" placeholder="Nuts, Kiwi... none!"></textarea>
+          </div>
 
-          <label for="cafeElse">9. What else would you want in a cafe?</label>
-          <textarea id="cafeElse" name="cafeElse" rows="3" placeholder="Happy smiles, plugs, specific food items, "></textarea>
+          <div class="q-cont">
+            <label for="cafeElse">9. What else would you want in a cafe?</label>
+            <textarea id="cafeElse" name="cafeElse" rows="3" placeholder="Happy smiles, plugs, specific food items, "></textarea>
+          </div>
 
-          <label for="contactInfo">10. Tell us who you are? Email is best but a name would also be great!</label>
-          <textarea id="contactInfo" name="contactInfo" rows="1" placeholder="hello@sidetablecoffee.com"></textarea>
+          <div class="q-cont">
+            <label for="contactInfo">10. Tell us who you are? Email is best but a name would also be great!</label>
+            <textarea id="contactInfo" name="contactInfo" rows="1" placeholder="hello@sidetablecoffee.com"></textarea>
+          </div>
 
           <button type="submit">Submit Survey</button>
         </form>
