@@ -8,11 +8,15 @@
   --site-header-h: 64px;
 }
 
+
+/* * { outline: 1px solid red !important; } */
+
 html {
   scroll-padding-top: calc(var(--site-header-h) + 12px);
 }
 
 body {
+  min-height: 100dvh; /* Dynamically adjusts to the browser UI */
   margin: 0;
   font-family: "Inter", Arial, sans-serif;
   line-height: 1.5;
@@ -21,6 +25,9 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+html, body {
+  overscroll-behavior-y: none;
 }
 
 .site-header {
@@ -131,13 +138,13 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 5px;
-  width: 20px;
+  gap: 8px;
+  width: 35px;
 }
 
 .site-nav-toggle-bars span {
   display: block;
-  height: 2px;
+  height: 1px;
   background: currentColor;
   border-radius: 1px;
 }
@@ -305,10 +312,11 @@ html.site-nav-drawer-open body {
 .bg-video {
   position: fixed;
   inset: 0;
-  width: 100%;
-  height: 100%;
+  width: 100dvw;
+  height: 100dvh;
   object-fit: cover;
   z-index: -2;
+  overflow: hidden;
 }
 
 body::before {
