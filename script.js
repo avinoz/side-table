@@ -145,3 +145,91 @@ if (surveyForm) {
     );
   });
 }
+
+(function initSiteNavDrawer() {
+  const toggle = document.getElementById("siteNavToggle");
+  const drawer = document.getElementById("siteNavDrawer");
+  const closeBtn = document.getElementById("siteNavDrawerClose");
+  const backdrop = document.getElementById("siteNavDrawerBackdrop");
+  const source = document.getElementById("primaryNavList");
+  const target = document.getElementById("primaryNavDrawerList");
+
+  if (!toggle || !drawer || !closeBtn || !backdrop || !source || !target) {
+    return;
+  }
+
+  const mq = window.matchMedia("(max-width: 640px)");
+
+  function copyNavIntoDrawer() {
+    target.innerHTML = "";
+    source.querySelectorAll("li").forEach((li) => {
+      target.appendChild(li.cloneNode(true));
+    });
+  }
+
+  function isMobileNav() {
+    return mq.matches;
+  }
+
+  let previouslyFocused = null;
+
+  function openDrawer() {
+    if (!isMobileNav()) return;
+    copyNavIntoDrawer();
+    previouslyFocused = document.activeElement;
+    drawer.classList.add("is-open");
+    drawer.setAttribute("aria-hidden", "false");
+    toggle.setAttribute("aria-expanded", "true");
+    document.documentElement.classList.add("site-nav-drawer-open");
+    closeBtn.focus();
+  }
+
+  function closeDrawer() {
+    drawer.classList.remove("is-open");
+    drawer.setAttribute("aria-hidden", "true");
+    toggle.setAttribute("aria-expanded", "false");
+    document.documentElement.classList.remove("site-nav-drawer-open");
+    if (previouslyFocused && typeof previouslyFocused.focus === "function") {
+      previouslyFocused.focus();
+    }
+  }
+
+  function onToggleClick() {
+    if (drawer.classList.contains("is-open")) {
+      closeDrawer();
+    } else {
+      openDrawer();
+    }
+  }
+
+  copyNavIntoDrawer();
+
+  mq.addEventListener("change", () => {
+    if (!isMobileNav()) {
+      closeDrawer();
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    if (!isMobileNav()) {
+      closeDrawer();
+    }
+  });
+
+  toggle.addEventListener("click", onToggleClick);
+  closeBtn.addEventListener("click", closeDrawer);
+  backdrop.addEventListener("click", closeDrawer);
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && drawer.classList.contains("is-open")) {
+      closeDrawer();
+    }
+  });
+
+  target.addEventListener("click", (event) => {
+    const link = event.target.closest("a");
+    if (link && link.getAttribute("href")) {
+      closeDrawer();
+    }
+  });
+})();
