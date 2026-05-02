@@ -15,7 +15,7 @@ html {
 }
 
 body {
-  min-height: 100dvh; /* Dynamically adjusts to the browser UI */
+  min-height: 100vh; /* Dynamically adjusts to the browser UI */
   margin: 0;
   font-family: "Inter", Arial, sans-serif;
   line-height: 1.5;
@@ -315,8 +315,8 @@ html.site-nav-drawer-open body {
 .bg-texture {
   position: fixed;
   inset: 0;
-  width: 100dvw;
-  height: 100dvh;
+  width: 100vw;
+  height: 100vh;
   object-fit: cover;
   overflow: hidden;
   opacity: .5;
@@ -325,8 +325,8 @@ html.site-nav-drawer-open body {
 .bg-video {
   position: fixed;
   inset: 0;
-  width: 100dvw;
-  height: 100dvh;
+  width: 100vw;
+  height: 100vh;
   object-fit: cover;
   z-index: -2;
   overflow: hidden;
@@ -856,7 +856,7 @@ button:hover {
     top: 0;
     right: 0;
     bottom: 0;
-    width: 100dvw;
+    width: 100vw;
     background: rgba(20, 16, 13, 0.5);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
