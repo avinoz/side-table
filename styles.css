@@ -745,6 +745,29 @@ button:hover {
     --site-header-h: 64px;
   }
 
+  .card.about h2 {
+    line-height: 1em;
+    margin: 30px 0 -10px 0;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  .about-points {
+    font-style: italic;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+/* 
+  .card.survey h2,
+  .card.email h2 {
+    color: blue;
+    line-height: initial;
+    margin: 0 0 -20px 0;
+  } */
+
   .footer-item {
     .footer-label {
       text-align: left !important;
@@ -894,8 +917,8 @@ button:hover {
     width: 100vw;
     margin-left: -22px;
     overflow-x: hidden;
-    height: 400px;
-    margin-top: -80px;
+    height: 450px;
+    margin-top: -50px;
     margin-bottom: -120px;
   }
   .CTA {
