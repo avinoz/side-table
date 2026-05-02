@@ -36,7 +36,7 @@ function showSideTableMessage(message) {
 const emailForm = document.getElementById("emailForm");
 const surveyForm = document.getElementById("surveyForm");
 const GOOGLE_SHEETS_WEB_APP_URL =
-  "https://script.google.com/macros/s/AKfycby5rN7k-qqvHTuOr5ULuYdmP_Wk50MsqKF-59qahR1wLXDNF4jpZ_Wha_NrzsMFgPysKw/exec";
+  "https://script.google.com/macros/s/AKfycbxrxFOSr92H96h9P6A6aUdGN_KDDBGABK2bAoTO1ZIjImsOBD3PFqgIGPzGba1T5lv0/exec";
 
 function sheetsEndpointConfigured() {
   return (
