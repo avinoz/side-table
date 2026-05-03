@@ -165,7 +165,7 @@ html, body {
   justify-content: space-between;
   gap: 12px;
   padding: 16px 18px;
-  border-bottom: 1px solid #d8d2c4;
+  /* border-bottom: 1px solid #d8d2c4; */
   flex-shrink: 0;
 }
 
@@ -203,9 +203,6 @@ html, body {
   gap: 0;
   padding: 0;
   margin: 0;
-  li {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-  }
   a {
     display: block;
     padding: 16px 22px;
@@ -214,7 +211,7 @@ html, body {
     font-family: "Knewave", "Inter", Arial, sans-serif;
   }
   a.is-current {
-    background: rgba(57, 57, 57, .8);
+    background: rgba(20, 20, 20, 0.95);
   }
 }
 
@@ -433,6 +430,7 @@ h1 {
 
 .card.survey {
   margin-top: 100px;
+  position: relative;
   h2 {
     margin: -50px 0 20px 0;
   }
@@ -444,9 +442,13 @@ h1 {
 .card.email {
   width: 700px;
 }
-
+.card.about {
+  h2 {
+    color: #7aa57e;
+  }
+}
 .card {
-  background: rgba(253, 251, 245, 0.3);
+  background: rgba(253, 251, 245, 0.909);
   border: 1px solid #1b1b1b;
   border-radius: 0;
   padding: 24px;
@@ -745,12 +747,10 @@ button:hover {
     --site-header-h: 64px;
   }
 
-  .card.about h2 {
-    line-height: 1em;
-    margin: 30px 0 -10px 0;
-    &:first-child {
-      margin-top: 0;
-    }
+  .site-header {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(41, 41, 41, 0.2);
   }
 
   .about-points {
@@ -760,13 +760,65 @@ button:hover {
     flex-direction: column;
     gap: 10px;
   }
-/* 
-  .card.survey h2,
-  .card.email h2 {
-    color: blue;
-    line-height: initial;
-    margin: 0 0 -20px 0;
-  } */
+
+  .card.about {
+    background: #7aa57e;
+    margin-top: 60px;
+    margin-right: -40px;
+    margin-left: -40px;
+    padding: 25px 60px 40px 60px;
+    rotate: -0.5deg;
+    h2 {
+      color: #fdfbf5;
+      line-height: 1em;
+      margin: 30px 0 -10px 0;
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .card.survey {
+    margin-right: -40px;
+    margin-left: -40px;
+    padding: 22px 60px 40px 60px;
+    rotate: -0.5deg;
+    text-align: center;
+    background: rgb(205, 130, 59);
+    h2 {
+      font-size: 2.3rem;
+      margin-left: 35px;
+      margin-bottom: 50px;
+    }
+    label,
+    legend {
+      color: #fdfbf5;
+    }
+    fieldset {
+      border: 1px solid #fdfbf5;
+    }
+  }
+
+  .card.email {
+    margin-top: 24px;
+    text-align: center;
+    background: rgb(59, 137, 205);
+    margin-right: -40px;
+    margin-left: -40px;
+    padding: 22px 60px;
+    rotate: -0.5deg;
+    input {
+      margin: 20px 0;
+    }
+    .row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      button {
+        margin-bottom: -50px;
+      }
+    }
+  }
 
   .footer-item {
     .footer-label {
@@ -791,11 +843,18 @@ button:hover {
     color: #dcdcdc;
   }
 
-  .site-footer .site-footer-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    padding: 18px 30px;
+
+  .site-footer {
+    background: none;
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    border-top: none;
+    .site-footer-inner {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 18px 30px;
+    }
   }
 
   .site-nav-toggle {
@@ -887,10 +946,6 @@ button:hover {
     grid-template-columns: 1fr;
   }
 
-  .card.email {
-    margin-top: 24px;
-  }
-
   .hero {
     max-width: 780px;
     padding-right: 0;
@@ -917,7 +972,7 @@ button:hover {
     width: 100vw;
     margin-left: -22px;
     overflow-x: hidden;
-    height: 450px;
+    height: 480px;
     margin-top: -50px;
     margin-bottom: -120px;
   }
