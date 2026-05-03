@@ -779,9 +779,9 @@ button:hover {
   }
 
   .card.survey {
-    margin-right: -40px;
-    margin-left: -40px;
-    padding: 22px 60px 40px 60px;
+    margin-right: -50px;
+    margin-left: -50px;
+    padding: 22px 70px 40px 70px;
     rotate: -0.5deg;
     text-align: center;
     background: rgb(205, 130, 59);
@@ -966,7 +966,81 @@ button:hover {
     line-height: .8;
     font-family: "Caveat", "Inter", Arial, sans-serif;
   }
-
+  .hero-text.survey {
+    min-height: 480px;
+    h1 {
+      rotate: -12deg;
+      span {
+        font-size: clamp(6rem, 10.2vw, 12rem);
+        &:first-child {
+          /* color: red; */
+          margin-left: 6vw;
+          line-height: 0.8;
+        }
+        &:nth-child(3) {
+          /* color: blue; */
+          margin-left: -5vw;
+          line-height: 0.8;
+        }
+        &:nth-child(5) {
+          /* color: orange; */
+          margin-left: -30vw;
+          line-height: 0.8;
+        }
+      }
+    }
+  }
+  .hero-text.about {
+    min-height: 480px;
+    white-space: pre;
+    h1 {
+      rotate: -12deg;
+      br {
+        display: none;
+      }
+      span {
+        font-size: clamp(8rem, 10.2vw, 15rem);
+        &:first-child {
+          /* color: red; */
+          margin-left: -30vw;
+          line-height: 0.3;
+        }
+        &:nth-child(3) {
+          /* color: blue; */
+          margin-left: -70vw;
+          line-height: 0.2;
+        }
+      }
+    }
+  }
+  .hero-text.index {
+    min-height: 480px;
+    display: flex;
+    h1 {
+      rotate: -12deg;
+      span {
+        font-size: clamp(8rem, 10.2vw, 15rem);
+        &:first-child {
+          /* color: red; */
+          margin-left: -35vw;
+        }
+        &:nth-child(2) {
+          /* color: blue; */
+          margin-left: 30vw;
+          line-height: 0.3;
+        }
+        &:nth-child(4) {
+          /* color: green; */
+          margin-left: -20vw;
+        }
+        &:nth-child(5) {
+          /* color: yellow  ; */
+          margin-left: 13vw;
+          line-height: 0.3;
+        }
+      }
+    }
+  }
   .CTA-container {
     position: initial;
     width: 100vw;
