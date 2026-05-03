@@ -317,7 +317,7 @@ html.site-nav-drawer-open body {
   height: 100vh;
   object-fit: cover;
   overflow: hidden;
-  /* opacity: .5; */
+  opacity: .5;
 }
 
 .bg-video {
@@ -334,7 +334,7 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: rgba(251, 248, 243, 0.5);
+  background: rgba(233, 232, 231, 0.5);
   z-index: -1;
   pointer-events: none;
 }
@@ -380,13 +380,17 @@ body::before {
   align-items: center;
   display: flex;
   flex-direction: column;
+  p {
+    margin: 0;
+    display: inline;
+  }
 }
 
 h1 {
   margin: 0;
   font-size: clamp(3rem, 7vw, 5rem);
   line-height: 1.05;
-  color: #3a3a3a;
+  color: #2f2f2f;
   text-shadow: none;
   font-family: "Over the Rainbow", "Inter", Arial, sans-serif;
   letter-spacing: 0.1em;
@@ -450,7 +454,8 @@ h1 {
 }
 .card {
   background: rgba(253, 251, 245, 0.909);
-  border: 1px solid #1b1b1b;
+  border: .5px solid #1b1b1b;
+  box-shadow: 0 0 30px rgba(62, 61, 59, 0.5);
   border-radius: 0;
   padding: 24px;
   margin-top: 18px;
@@ -748,10 +753,14 @@ button:hover {
     --site-header-h: 64px;
   }
 
+  .bg-texture {
+    opacity: 0;
+  }
+
   .site-header {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(41, 41, 41, 0.2);
+    border-bottom: 0.5px solid #1b1b1b55;
   }
 
   .about-points {
@@ -968,7 +977,7 @@ button:hover {
     font-family: "Grape Nuts", "Inter", Arial, sans-serif;
   }
   .sp {
-    height: 5px;
+    height: 50px;
   }
   .hero-text.survey {
     min-height: 480px;
@@ -977,18 +986,16 @@ button:hover {
       span {
         font-size: clamp(6rem, 10.2vw, 12rem);
         &:first-child {
-          /* color: red; */
-          margin-left: 6vw;
+          font-size: clamp(5.3rem, 10.2vw, 12rem);
+          margin-left: 11vw;
           line-height: 0.8;
         }
         &:nth-child(3) {
-          /* color: blue; */
           margin-left: -5vw;
           line-height: 0.8;
         }
         &:nth-child(5) {
-          /* color: orange; */
-          margin-left: -30vw;
+          margin-left: 13vw;
           line-height: 0.8;
         }
       }
@@ -1006,20 +1013,18 @@ button:hover {
       span {
         font-size: clamp(8rem, 10.2vw, 15rem);
         &:first-child {
-          /* color: red; */
-          margin-left: -70vw;
-          line-height: 0.3;
+          margin-left: -65vw;
+          line-height: 0.5;
         }
         &:nth-child(3) {
-          /* color: blue; */
-          margin-left: -80vw;
+          margin-left: -60vw;
           line-height: 0.2;
         }
       }
     }
   }
   .hero-text.index {
-    min-height: 480px;
+    min-height: 560px;
     display: flex;
     h1 {
       rotate: -12deg;
@@ -1034,10 +1039,10 @@ button:hover {
           margin-left: 27vw;
         }
         &:nth-child(4) {
-          margin-left: -15vw;
+          margin-left: -22vw;
         }
         &:nth-child(5) {
-          margin-left: 15vw;
+          margin-left: 8vw;
         }
       }
     }
