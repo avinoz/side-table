@@ -59,6 +59,7 @@ html, body {
   text-decoration: none;
   flex-shrink: 0;
   gap: 8px;
+  margin-left: -20px;
 }
 
 .site-header-logo {
@@ -779,6 +780,7 @@ button:hover {
   }
 
   .card.survey {
+    margin-top: 0;
     margin-right: -50px;
     margin-left: -50px;
     padding: 22px 70px 40px 70px;
@@ -995,6 +997,7 @@ button:hover {
     white-space: pre;
     h1 {
       rotate: -12deg;
+      margin-left: -25px;
       br {
         display: none;
       }
@@ -1002,12 +1005,12 @@ button:hover {
         font-size: clamp(8rem, 10.2vw, 15rem);
         &:first-child {
           /* color: red; */
-          margin-left: -30vw;
+          margin-left: -70vw;
           line-height: 0.3;
         }
         &:nth-child(3) {
           /* color: blue; */
-          margin-left: -70vw;
+          margin-left: -80vw;
           line-height: 0.2;
         }
       }
@@ -1022,7 +1025,7 @@ button:hover {
         font-size: clamp(8rem, 10.2vw, 15rem);
         &:first-child {
           /* color: red; */
-          margin-left: -35vw;
+          margin-left: -40vw;
         }
         &:nth-child(2) {
           /* color: blue; */
@@ -1032,6 +1035,7 @@ button:hover {
         &:nth-child(4) {
           /* color: green; */
           margin-left: -20vw;
+          
         }
         &:nth-child(5) {
           /* color: yellow  ; */
