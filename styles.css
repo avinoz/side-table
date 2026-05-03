@@ -317,7 +317,7 @@ html.site-nav-drawer-open body {
   height: 100vh;
   object-fit: cover;
   overflow: hidden;
-  opacity: .5;
+  /* opacity: .5; */
 }
 
 .bg-video {
@@ -964,9 +964,11 @@ button:hover {
     margin-bottom: 30px;
     font-weight: 700;
     rotate: -4deg;
-    letter-spacing: 0em;
-    line-height: .8;
-    font-family: "Caveat", "Inter", Arial, sans-serif;
+    letter-spacing: -0.03em;
+    font-family: "Grape Nuts", "Inter", Arial, sans-serif;
+  }
+  .sp {
+    height: 5px;
   }
   .hero-text.survey {
     min-height: 480px;
@@ -1021,26 +1023,21 @@ button:hover {
     display: flex;
     h1 {
       rotate: -12deg;
-      span {
+      p {
+        line-height: 0;
         font-size: clamp(8rem, 10.2vw, 15rem);
+        margin: 65px 0;
         &:first-child {
-          /* color: red; */
-          margin-left: -40vw;
+          margin-left: -25vw;
         }
         &:nth-child(2) {
-          /* color: blue; */
-          margin-left: 30vw;
-          line-height: 0.3;
+          margin-left: 27vw;
         }
         &:nth-child(4) {
-          /* color: green; */
-          margin-left: -20vw;
-          
+          margin-left: -15vw;
         }
         &:nth-child(5) {
-          /* color: yellow  ; */
-          margin-left: 13vw;
-          line-height: 0.3;
+          margin-left: 15vw;
         }
       }
     }
