@@ -2,17 +2,19 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Us | Side Table Coffee</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>About | Side Table</title>
     <link rel="icon" type="image/png" href="./favicon.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Over+the+Rainbow&family=Knewave&family=Grape+Nuts&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Over+the+Rainbow&family=Knewave&family=Grape+Nuts&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body>
-    <img src="./texture-sm.jpg" alt="Texture" class="bg-texture" />
+  <body class="st-theme">
+    <img src="./texture-sm.jpg" alt="" class="bg-texture" />
     <video class="bg-video" autoplay muted loop playsinline>
       <source src="./st-bg.mp4" type="video/mp4" />
     </video>
@@ -20,7 +22,7 @@
     <header class="site-header">
       <div class="site-header-inner">
         <a class="site-header-img" href="./index.html" aria-label="Side Table">
-          <img src="./st-logo-white.png" alt="Side Table" class="site-header-logo" />
+          <img src="./st-logo-white.png" alt="" class="site-header-logo" />
           <img src="./st-wordmark-white.png" alt="Side Table" class="site-header-wordmark" />
         </a>
         <button type="button" class="site-nav-toggle" id="siteNavToggle" aria-expanded="false" aria-controls="siteNavDrawer">
@@ -30,10 +32,10 @@
         <nav class="site-nav site-nav--desktop" id="siteNavDesktop" aria-label="Primary">
           <ul id="primaryNavList">
             <li><a href="./index.html">Home</a></li>
-            <li><a href="./about.html"class="is-current">About Us</a></li>
+            <li><a href="./index.html#menus">Menus</a></li>
+            <li><a class="site-nav-cta" href="./order-ahead.html">Order Now</a></li>
+            <li><a href="./about.html" class="is-current">About</a></li>
             <li><a href="./survey.html">Survey</a></li>
-            <!-- <li><a href="./order-ahead.html">Order Ahead</a></li> -->
-            <!-- <li><a href="./join-us.html">Join Us</a></li> -->
           </ul>
         </nav>
       </div>
@@ -50,7 +52,7 @@
       <div class="site-nav-drawer-backdrop" id="siteNavDrawerBackdrop"></div>
       <div class="site-nav-drawer-panel">
         <div class="site-nav-drawer-top">
-          <span class="site-nav-drawer-title"></span>
+          <span class="site-nav-drawer-title">Menu</span>
           <button type="button" class="site-nav-drawer-close" id="siteNavDrawerClose" aria-label="Close menu">
             <span aria-hidden="true">×</span>
           </button>
@@ -61,78 +63,85 @@
       </div>
     </div>
 
-    <main class="page" id="main-content">
-      <section class="hero hero-tight">
-        <p class="eyebrow">About</p>
-        <div class="hero-text about">
-        <h1>
-    <span>By 
-    locals</span></br>
-    <span>for 
-    locals.</span>
-        </h1>
-        </div>
-          <p class="intro">
-            Side Table is a neighborhood coffeehouse coming to South Berkeley—built around
-            quality drinks, thoughtful food, and room to linger. More on our story soon.
-          </p>
-        </div>
+    <main class="page page--inner" id="main-content">
+      <section class="st-sub-hero">
+        <p class="st-kicker">About</p>
+        <h1 class="st-display st-display--page">By locals · For locals</h1>
+        <p class="st-lede st-lede--center">
+          Side Table is a neighborhood coffeehouse coming to South Berkeley—built around quality drinks, thoughtful food,
+          and room to linger. More on our story soon.
+        </p>
       </section>
 
       <section class="card about">
-        <h2>Coffee, Tea, & Great Company</h2> 
-        <p>Welcome to Side Table — your local hangout for a proper caffeine fix, a great lunch, and a serious slice of cake. 
-        We’re building a bright, open space with plenty of room to spread out, whether you’re catching up with friends over 
-        a long lunch or finally tackling that book you’ve been meaning to finish.</p>
+        <h2>Coffee, Tea, &amp; Great Company</h2>
+        <p>
+          Welcome to Side Table — your local hangout for a proper caffeine fix, a great lunch, and a serious slice of
+          cake. We’re building a bright, open space with plenty of room to spread out, whether you’re catching up with
+          friends over a long lunch or finally tackling that book you’ve been meaning to finish.
+        </p>
         <h2>More Than Just a Quick Stop</h2>
-        <p>We’re here for more than just your morning rush. Our menu is built on fresh, simple ingredients that hit 
-        the spot:</p>
+        <p>We’re here for more than just your morning rush. Our menu is built on fresh, simple ingredients that hit the spot:</p>
         <div class="about-points">
           <div>• Locally sourced fresh baked cakes and pastries that change with the seasons.</div>
           <div>• Hearty sandwiches and vibrant, seasonal salads from fresh ingredients.</div>
           <div>• Expertly pulled espresso and a massive library of loose-leaf teas.</div>
         </div>
-        <h2>Make Yourself at Home</h2> 
-        <p>With plenty of seating and a laid-back vibe, we’re the neighborhood’s go-to spot to actually sit down and stay a while. 
-          It’s a big, welcoming space designed for slow weekend brunches, mid-day meetings, or just escaping the house for a bit of 
-          atmosphere.</p>
-        <h2>Take the Vibe Home</h2> 
-        <p>Love what we’re brewing? Grab a bag of our signature beans or a tin of our house tea on your way out. Planning a 
-          get-together? Ask us about our whole cakes and catering platters for your next party.</p>
-        <h2>Come Hang Out</h2> 
-        <p>Open daily from the early morning spark to the afternoon slump. Pull up a chair—there’s always a spot for you at the table.</p>
-
+        <h2>Make Yourself at Home</h2>
+        <p>
+          With plenty of seating and a laid-back vibe, we’re the neighborhood’s go-to spot to actually sit down and stay
+          a while. It’s a big, welcoming space designed for slow weekend brunches, mid-day meetings, or just escaping the
+          house for a bit of atmosphere.
+        </p>
+        <h2>Take the Vibe Home</h2>
+        <p>
+          Love what we’re brewing? Grab a bag of our signature beans or a tin of our house tea on your way out. Planning
+          a get-together? Ask us about our whole cakes and catering platters for your next party.
+        </p>
+        <h2>Come Hang Out</h2>
+        <p>
+          Open daily from the early morning spark to the afternoon slump. Pull up a chair—there’s always a spot for you at
+          the table.
+        </p>
       </section>
     </main>
 
-    <footer class="site-footer">
+    <div class="st-ticker" role="presentation" aria-hidden="true">
+      <div class="st-ticker-track">
+        <span class="st-ticker-segment"
+          >Side Table Coffee · South Berkeley · Open daily · Community first · Crafted with care ·
+        </span>
+        <span class="st-ticker-segment" aria-hidden="true"
+          >Side Table Coffee · South Berkeley · Open daily · Community first · Crafted with care ·
+        </span>
+      </div>
+    </div>
+
+    <footer class="site-footer site-footer--theme">
       <div class="site-footer-inner">
         <div class="site-footer-contact">
           <div class="footer-item">
-            <div class="footer-label">Address</div>
-            <a href="http://maps.google.com/?q=1200 Pennsylvania Ave SE, Washington, District of Columbia, 20003">South Berkeley, CA</a>
-        </div>
-        <div class="footer-item">
-          <div class="footer-label">Email</div>
-            <a href="mailto:hello@sidetablecoffee.com">hello@sidetablecoffee.com</a>
-        </div>
-        <div class="footer-item">
-          <div class="footer-label">Phone</div>
-          <a href="tel:510.XXX.XXXX">510.XXX.XXXX</a>
-        </div>
-      </div>
-
-        <div class="site-footer-social-container">
-          <a class="privacy-link" href="#">© Side Table Coffee 2026</a>
-            <a class="privacy-link" href="#">Privacy Policy</a>
+            <div class="footer-label">Contact</div>
+            <div>
+              <a href="mailto:hello@sidetableberkeley.com">hello@sidetableberkeley.com</a><br />
+              <span>South Berkeley, CA</span>
+            </div>
+          </div>
+          <div class="footer-item">
+            <div class="footer-label">Follow</div>
             <a
               class="social-icon"
               aria-label="Follow us on Instagram"
               href="https://www.instagram.com/sidetablecoffee/"
               target="_blank"
               rel="noopener noreferrer"
-              ><img src="./insta.png" alt="Instagram" /></a
-            >
+              ><img src="./insta-white.png" alt="Instagram"
+            /></a>
+          </div>
+        </div>
+        <div class="site-footer-social-container">
+          <span class="privacy-link">© 2026 Side Table. All rights reserved.</span>
+          <span class="privacy-link">Berkeley, California</span>
         </div>
       </div>
     </footer>

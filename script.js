@@ -233,3 +233,37 @@ if (surveyForm) {
     }
   });
 })();
+
+(function initHomeReveal() {
+  const root = document.querySelector(".page--home");
+  if (!root) return;
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!reduceMotion) {
+    const reveals = root.querySelectorAll(".reveal");
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.08, rootMargin: "0px 0px -8% 0px" }
+    );
+    reveals.forEach((el) => io.observe(el));
+  } else {
+    root.querySelectorAll(".reveal").forEach((el) => el.classList.add("is-visible"));
+  }
+})();
+
+const contactForm = document.getElementById("contactForm");
+if (contactForm) {
+  contactForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (!contactForm.reportValidity()) return;
+    contactForm.reset();
+    showSideTableMessage("Thanks — we'll get back to you soon.");
+  });
+}
