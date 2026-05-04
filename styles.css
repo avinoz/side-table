@@ -798,10 +798,10 @@ button:hover {
       margin-left: 35px;
       margin-bottom: 50px;
     }
-    label,
+    /* label,
     legend {
       color: #fdfbf5;
-    }
+    } */
     fieldset {
       border: 1px solid #fdfbf5;
     }
@@ -1802,7 +1802,6 @@ body.st-theme .card.survey legend {
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: rgba(244, 239, 230, 0.92);
 }
 
 body.st-theme .card.survey fieldset {
