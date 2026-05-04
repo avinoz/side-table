@@ -238,9 +238,10 @@ if (surveyForm) {
   const root = document.querySelector(".page--home");
   if (!root) return;
 
+  const revealSelector = ".reveal-h2, .reveal-img";
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (!reduceMotion) {
-    const reveals = root.querySelectorAll(".reveal");
+    const reveals = root.querySelectorAll(revealSelector);
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -250,11 +251,11 @@ if (surveyForm) {
           }
         });
       },
-      { threshold: 0.08, rootMargin: "0px 0px -8% 0px" }
+      { threshold: 0.12, rootMargin: "0px 0px -6% 0px" }
     );
     reveals.forEach((el) => io.observe(el));
   } else {
-    root.querySelectorAll(".reveal").forEach((el) => el.classList.add("is-visible"));
+    root.querySelectorAll(revealSelector).forEach((el) => el.classList.add("is-visible"));
   }
 })();
 
