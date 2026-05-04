@@ -941,11 +941,10 @@ button:hover {
 }
 
 .st-story {
-  padding: 100px 0;
+  padding: 100px 0 0 0;
   border-top: 1px solid #1a1816;
   border-bottom: 1px solid #1a1816;
   background: rgb(244, 239, 230);
-  /* background: #1e1c19; */
 }
 
 .st-story-index {
