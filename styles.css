@@ -35,11 +35,12 @@ html, body {
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(30, 30, 30, 0.1);
+  background: rgb(30, 30, 30);
   box-shadow: 0 0 50px rgba(0, 0, 0, .3);
-  backdrop-filter: blur(3px);               /* Blurs content underneath */
-  -webkit-backdrop-filter: blur(3px); 
   padding: 5px;
+  /* background: rgba(30, 30, 30, 0.1); */
+  /* backdrop-filter: blur(3px);               Blurs content underneath */
+  /* -webkit-backdrop-filter: blur(3px);  */
 }
 
 .site-header-inner {
@@ -93,19 +94,22 @@ html, body {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  padding: 20px 2px;
-  border-bottom: 2px solid transparent;
-  color: #222222;
+  padding: 21px 2px;
+  border-bottom: 5px solid transparent;
+  color: #dcdcdc;
+  transition: all 0.1s;
 }
 
 .site-nav a:hover,
 .site-nav a:focus-visible {
-  border-bottom-color: #1a1a1a;
+  filter: brightness(1.1);
+  color: #ffffff;
+  border-bottom-color: #ffffff;
   outline: none;
 }
 
 .site-nav a.is-current {
-  border-bottom-color: #965121;
+  border-bottom-color: #c97a42;
   color: #c97a42;
 }
 
@@ -152,7 +156,8 @@ html, body {
 .site-nav-toggle-bars span {
   display: block;
   height: 1px;
-  background: #2a2a2a;
+  /* background: #2a2a2a; */
+  background: #ffffff;
   border-radius: 1px;
 }
 
@@ -166,7 +171,6 @@ html, body {
   justify-content: space-between;
   gap: 12px;
   padding: 16px 18px;
-  /* border-bottom: 1px solid #d8d2c4; */
   flex-shrink: 0;
 }
 
@@ -206,7 +210,7 @@ html, body {
   margin: 0;
   a {
     display: block;
-    padding: 16px 22px;
+    padding: 16px 22px 16px 90px;
     font-size: 2.5rem;
     border-bottom: none;
     font-family: "Knewave", "Inter", Arial, sans-serif;
@@ -396,13 +400,6 @@ h1 {
   letter-spacing: 0.1em;
   rotate: -3deg;
 }
-/* .mar-right {
-  font-family: "Knewave", "Inter", Arial, sans-serif;
-  font-weight: 100;
-  font-size: clamp(1.8rem, 4vw, 2.25rem);
-  letter-spacing: 0.05em;
-  color: #965121;
-} */
 
 .intro {
   margin: 0 auto;
@@ -846,14 +843,16 @@ button:hover {
   }
 
   .site-nav ul {
-    margin: 0;
+    margin-top: 10%;
   }
   
   .site-nav a {
+    rotate: -12deg;
+    width: 120%;
+    margin-left: -10%;
     padding: 15px 20px;
     color: #dcdcdc;
   }
-
 
   .site-footer {
     background: none;
