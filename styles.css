@@ -1,4 +1,3 @@
-/* 
 * {
   box-sizing: border-box;
 }
@@ -7,27 +6,44 @@
   --site-header-h: 64px;
 }
 
-
 html {
   scroll-padding-top: calc(var(--site-header-h) + 12px);
+}
+
+html,
+body {
+  overscroll-behavior-y: none;
 }
 
 body {
   min-height: 100vh;
   margin: 0;
-  font-family: "Inter", Arial, sans-serif;
+  font-family: "DM Sans", "Inter", Arial, sans-serif;
   line-height: 1.5;
-  background: #d0c4bc;
+  background: #141210;
   display: flex;
   flex-direction: column;
-  color: #2d2d2d;
+  color: #eae6e1;
 }
-html, body {
-  overscroll-behavior-y: none;
-} */
- body {
-  margin: 0;
- }
+
+body.page-light {
+  font-family: "Inter", Arial, sans-serif;
+  color: #2d2d2d;
+  background: #d0c4bc;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 18, 16, 0.72);
+  z-index: -1;
+  pointer-events: none;
+}
+
+body.page-light::before {
+  background: rgba(233, 232, 231, 0.5);
+}
 
 .site-header {
   position: fixed;
@@ -38,12 +54,15 @@ html, body {
   background: rgb(30, 30, 30);
   box-shadow: 0 0 50px rgba(0, 0, 0, .3);
   padding: 5px;
+  display: flex;
+  justify-content: center;
 }
 
 .site-header-inner {
+  width: 100%;
   max-width: 1200px;
   min-height: 45px;
-  margin: 0 auto;
+  margin: 0 20px 0 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -57,7 +76,6 @@ html, body {
   text-decoration: none;
   flex-shrink: 0;
   gap: 8px;
-  margin-left: -20px;
 }
 
 .site-header-logo {
@@ -243,8 +261,6 @@ html.site-nav-drawer-open body {
 .site-footer {
   flex-shrink: 0;
   width: 100%;
-  backdrop-filter: blur(2px);               /* Blurs content underneath */
-  -webkit-backdrop-filter: blur(2px); 
   background: rgba(139, 77, 14, 0.1);
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   .site-footer-inner {
@@ -317,7 +333,13 @@ html.site-nav-drawer-open body {
   height: 100vh;
   object-fit: cover;
   overflow: hidden;
-  opacity: .5;
+  opacity: 0.18;
+  mix-blend-mode: overlay;
+}
+
+body.page-light .bg-texture {
+  opacity: 0.5;
+  mix-blend-mode: normal;
 }
 
 .bg-video {
@@ -328,15 +350,11 @@ html.site-nav-drawer-open body {
   object-fit: cover;
   z-index: -2;
   overflow: hidden;
+  filter: saturate(0.75) brightness(0.55);
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: rgba(233, 232, 231, 0.5);
-  z-index: -1;
-  pointer-events: none;
+body.page-light .bg-video {
+  filter: none;
 }
 
 .hero {
@@ -366,16 +384,6 @@ body::before {
   margin-bottom: 14px;
   font-size: 0.8rem;
 }
-
-/* h1 {
-  margin: 0;
-  font-size: clamp(3rem, 7vw, 5rem);
-  line-height: 1.05;
-  color: #2f2f2f;
-  text-shadow: none;
-  letter-spacing: 0.1em;
-  rotate: -3deg;
-} */
 
 .intro {
   margin: 0 auto;
@@ -476,7 +484,6 @@ fieldset {
     border: solid 1px rgb(212, 110, 14);
   }
 
-  /* Hide default arrow */
   select {
     appearance: none;
     -webkit-appearance: none;
@@ -592,27 +599,6 @@ button:hover {
     display: flex;
     flex-direction: column;
     gap: 10px;
-  }
-
-  .card.email {
-    margin-top: 24px;
-    text-align: center;
-    background: rgb(59, 137, 205);
-    margin-right: -40px;
-    margin-left: -40px;
-    padding: 22px 60px;
-    rotate: -0.5deg;
-    input {
-      margin: 20px 0;
-    }
-    .row {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      button {
-        margin-bottom: -50px;
-      }
-    }
   }
 
   .footer-item {
@@ -733,44 +719,6 @@ button:hover {
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
   }
-
-  .hero {
-    max-width: 780px;
-    padding-right: 0;
-    margin-top: 10px;
-  }
-
-  .hero h1 {
-    font-size: clamp(2.25rem, 9vw, 4rem);
-    margin-bottom: 16px;
-    font-weight: 700;
-    rotate: -2deg;
-    letter-spacing: -0.02em;
-    font-family: "Grape Nuts", "Inter", Arial, sans-serif;
-  }
-}
-
-/* -------------------------------------------------------------------------- */
-/* Dark retail theme (index, about, survey — body.st-theme)                    */
-/* -------------------------------------------------------------------------- */
-
-body.st-theme {
-  font-family: "DM Sans", "Inter", Arial, sans-serif;
-  color: #eae6e1;
-  background: #141210;
-}
-
-body.st-theme::before {
-  background: rgba(20, 18, 16, 0.72);
-}
-
-body.st-theme .bg-texture {
-  opacity: 0.18;
-  mix-blend-mode: overlay;
-}
-
-body.st-theme .bg-video {
-  filter: saturate(0.75) brightness(0.55);
 }
 
 .site-nav a.site-nav-cta {
@@ -837,7 +785,6 @@ body.st-theme .bg-video {
 
 .st-display {
   margin: 0 0 26px;
-  font-family: "Bebas Neue", "Impact", sans-serif;
   font-size: clamp(3.2rem, 8vw, 5.6rem);
   line-height: 0.95;
   letter-spacing: 0.02em;
@@ -845,7 +792,6 @@ body.st-theme .bg-video {
   text-transform: uppercase;
   color: #f4efe6;
   rotate: 0deg;
-  text-shadow: none;
 }
 
 .st-hours-line {
@@ -871,9 +817,9 @@ body.st-theme .bg-video {
 }
 
 .st-btn--light {
-  background: #f4efe6;
+  background: #c97a42;
   color: #1a1816;
-  border: 1px solid #f4efe6;
+  border: 1px solid #c97a42;
 }
 
 .st-btn--light:hover,
@@ -930,33 +876,42 @@ body.st-theme .bg-video {
   }
 }
 
-.st-band {
-  padding: clamp(40px, 7vw, 72px) clamp(20px, 5vw, 48px);
-}
-
 .st-band--visit {
-  background: #c97a42;
+  background: rgb(244, 239, 230);
   color: #1a1816;
+  padding: 80px 0;
+  display: flex;
 }
 
 .st-band-inner {
-  max-width: 900px;
-  margin: 0 auto;
+  /* max-width: 900px; */
+  width: 100%;
+  margin: 0 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.st-visit-cont {
+  text-align: right;
 }
 
 .st-section-title {
   margin: 0 0 22px;
   font-family: "Bebas Neue", "Impact", sans-serif;
-  font-size: clamp(2.4rem, 5vw, 3.2rem);
+  font-size: 5.5rem;
+  line-height: .9;
   font-weight: 400;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  text-align: right;
 }
 
 .st-visit-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   gap: 28px 40px;
+  max-width: 1200px;
 }
 
 .st-label {
@@ -986,30 +941,75 @@ body.st-theme .bg-video {
 }
 
 .st-story {
-  padding: clamp(48px, 9vw, 96px) clamp(20px, 5vw, 48px);
-  background: #1e1c19;
-}
-
-.st-story-inner {
-  max-width: 1100px;
-  margin: 0 auto;
+  padding: 100px 0;
+  border-top: 1px solid #1a1816;
+  border-bottom: 1px solid #1a1816;
+  background: rgb(244, 239, 230);
+  /* background: #1e1c19; */
 }
 
 .st-story-index {
-  margin: 0 0 18px;
+  margin: 0 15% 18px;
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(244, 239, 230, 0.45);
+  color: #1a1816;
+
 }
 
 .st-story-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
-  gap: clamp(24px, 4vw, 48px);
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
   align-items: center;
+  .st-story-copy {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+  }
+  .st-story-heading {
+    margin: 0 0 16px;
+    font-family: "Bebas Neue", "Impact", sans-serif;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    list-style: 0.5;
+    line-height: 1 !important;
+    display: inline;
+    color: #1a1816; 
+    margin-left: 10%;
+  }
+   p {
+    width: 35%;
+    margin-right: 20px;
+  }
+  .st-story-media {
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+
+  }
 }
+
+@media (max-width: 641px) {
+  .st-story-grid {
+    .st-story-copy {
+      flex-direction: column;
+      .st-story-heading {
+        margin-left: 0;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+      p {
+        padding: 0 30px;
+        width: 100%;
+      }
+    }
+  }
+}
+
+
 
 .st-story-media {
   margin: 0;
@@ -1024,20 +1024,12 @@ body.st-theme .bg-video {
   height: auto;
 }
 
-.st-story-heading {
-  margin: 0 0 16px;
-  font-family: "Bebas Neue", "Impact", sans-serif;
-  font-size: clamp(2rem, 4vw, 2.8rem);
-  font-weight: 400;
-  letter-spacing: 0.03em;
-  color: #f4efe6;
-}
-
 .st-story-body {
   margin: 0;
   font-size: 1.02rem;
   line-height: 1.7;
-  color: rgba(244, 239, 230, 0.82);
+  color: #1a1816; 
+  /* color: rgba(244, 239, 230, 0.82); */
 }
 
 .st-shop {
@@ -1373,10 +1365,6 @@ body.st-theme .bg-video {
     margin: 0 auto;
   }
 
-  .st-story-grid {
-    grid-template-columns: 1fr;
-  }
-
   .st-shop-grid {
     grid-template-columns: 1fr;
   }
@@ -1413,10 +1401,6 @@ body.st-theme .bg-video {
   text-align: center;
 }
 
-.st-display--page {
-  font-size: clamp(2.35rem, 7vw, 3.85rem);
-}
-
 .st-display--survey {
   font-size: clamp(1.75rem, 5vw, 2.65rem);
   line-height: 1.05;
@@ -1425,20 +1409,20 @@ body.st-theme .bg-video {
   margin-right: auto;
 }
 
-body.st-theme main h1.st-display {
-  rotate: 0deg;
+h1.st-display {
   text-shadow: none;
+  font-size: clamp(4rem, 8vw, 6rem);
   font-family: "Bebas Neue", "Impact", sans-serif;
 }
 
-body.st-theme .page--inner .card {
+.page--inner .card {
   background: rgba(244, 239, 230, 0.06);
   border: 1px solid rgba(244, 239, 230, 0.12);
   box-shadow: none;
   color: rgba(244, 239, 230, 0.92);
 }
 
-body.st-theme .page--inner .card h2 {
+.page--inner .card h2 {
   font-family: "Bebas Neue", "Impact", sans-serif;
   font-size: clamp(1.55rem, 3.8vw, 1.95rem);
   letter-spacing: 0.05em;
@@ -1447,21 +1431,21 @@ body.st-theme .page--inner .card h2 {
   margin: 26px 0 12px;
 }
 
-body.st-theme .page--inner .card h2:first-child {
+.page--inner .card h2:first-child {
   margin-top: 0;
 }
 
-body.st-theme .page--inner .card p,
-body.st-theme .page--inner .card.about .about-points div {
+.page--inner .card p,
+.page--inner .card.about .about-points div {
   color: rgba(244, 239, 230, 0.86);
   line-height: 1.65;
 }
 
-body.st-theme .page--inner .card a {
+.page--inner .card a {
   color: #e8b882;
 }
 
-body.st-theme .card.survey h2 {
+.page--inner .card.survey h2 {
   font-family: "Bebas Neue", "Impact", sans-serif;
   font-size: clamp(1.9rem, 4.5vw, 2.5rem);
   letter-spacing: 0.04em;
@@ -1469,26 +1453,27 @@ body.st-theme .card.survey h2 {
   margin: 0 0 24px;
 }
 
-body.st-theme .card.survey .form {
+.page--inner .card.survey .form {
   gap: 22px;
 }
 
-body.st-theme .card.survey .q-cont label,
-body.st-theme .card.survey legend {
+.page--inner .card.survey .q-cont label,
+.page--inner .card.survey legend {
   font-family: "DM Sans", "Inter", Arial, sans-serif;
   font-size: 0.95rem;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+  color: rgba(244, 239, 230, 0.92);
 }
 
-body.st-theme .card.survey fieldset {
+.page--inner .card.survey fieldset {
   border: 1px solid rgba(244, 239, 230, 0.22);
   border-radius: 2px;
   padding: 14px 16px;
 }
 
-body.st-theme .card.survey fieldset label {
+.page--inner .card.survey fieldset label {
   color: rgba(244, 239, 230, 0.9);
   font-size: 0.95rem;
   font-weight: 400;
@@ -1497,54 +1482,52 @@ body.st-theme .card.survey fieldset label {
   white-space: normal;
 }
 
-body.st-theme .card.survey select,
-body.st-theme .card.survey textarea {
+.page--inner .card.survey select,
+.page--inner .card.survey textarea {
   background: rgba(10, 9, 8, 0.55);
   border: 1px solid rgba(244, 239, 230, 0.22);
   color: #f4efe6;
+  width: 100%;
 }
 
-body.st-theme .card.survey select option {
+.page--inner .card.survey select option {
   background: #1a1816;
   color: #f4efe6;
 }
 
-body.st-theme .card.survey .q-cont select,
-body.st-theme .card.survey .q-cont textarea {
+.page--inner .card.survey .q-cont select,
+.page--inner .card.survey .q-cont textarea {
   border-color: rgba(244, 239, 230, 0.22);
 }
 
-body.st-theme .card.survey button[type="submit"] {
+.page--inner .card.survey button[type="submit"] {
   background: #f4efe6;
   color: #1a1816;
   border: 1px solid #f4efe6;
   margin-top: 4px;
 }
 
-body.st-theme .card.survey button[type="submit"]:hover,
-body.st-theme .card.survey button[type="submit"]:focus-visible {
+.page--inner .card.survey button[type="submit"]:hover,
+.page--inner .card.survey button[type="submit"]:focus-visible {
   background: #ffffff;
   outline: none;
 }
 
 @media (max-width: 640px) {
-  body.st-theme .card.about,
-  body.st-theme .card.survey {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+  .page--inner .card.about,
+  .page--inner .card.survey {
     margin-top: 20px;
     padding: 22px 18px 32px !important;
-    rotate: 0deg !important;
     text-align: left;
     background: rgba(244, 239, 230, 0.06) !important;
     border: 1px solid rgba(244, 239, 230, 0.12) !important;
   }
 
-  body.st-theme .card.survey {
+  .page--inner .card.survey {
     text-align: left;
   }
 
-  body.st-theme .card.survey h2 {
+  .page--inner .card.survey h2 {
     margin-left: 0 !important;
     text-align: center;
   }
