@@ -8,6 +8,7 @@
 
 html {
   scroll-padding-top: calc(var(--site-header-h) + 12px);
+  scroll-behavior: smooth;
 }
 
 html,
@@ -1262,11 +1263,11 @@ button:hover {
 
 .reveal-img img {
   will-change: clip-path;
-  transition: clip-path 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: clip-path 1.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .st-shop-card-media.reveal-img img {
-  transition: clip-path 1.2s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s ease;
+  transition: clip-path 1.2s cubic-bezier(0.19, 1, 0.22, 1), transform 0.6s ease;
 }
 
 .reveal-img--from-left:not(.is-visible) img {
@@ -1533,6 +1534,10 @@ h1.st-display {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .st-hero-media img {
     animation: none;
     transform: none;
