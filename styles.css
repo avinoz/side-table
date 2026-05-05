@@ -1070,7 +1070,7 @@ button:hover {
 
 .st-shop-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 18px 40px rgba(26, 24, 22, 0.12);
+  /* box-shadow: 0 18px 40px rgba(26, 24, 22, 0.12); */
 }
 
 .st-shop-card-media {
@@ -1091,7 +1091,7 @@ button:hover {
 }
 
 .st-shop-card-title {
-  margin: 18px 20px 8px;
+  margin: 18px 0 8px;
   font-size: 1.2rem;
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -1099,7 +1099,7 @@ button:hover {
 }
 
 .st-shop-card-desc {
-  margin: 0 20px 16px;
+  margin: 0 0 16px;
   flex: 1 1 auto;
   font-size: 0.92rem;
   line-height: 1.55;
