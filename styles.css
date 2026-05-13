@@ -1508,8 +1508,8 @@ h1.st-display {
 }
 
 .page--inner .card.survey fieldset label {
-  color: rgba(244, 239, 230, 0.9);
-  font-size: 0.95rem;
+  color: #c97a42;
+  font-size: 1rem;
   font-weight: 400;
   text-transform: none;
   letter-spacing: 0;
@@ -1533,19 +1533,6 @@ h1.st-display {
 .page--inner .card.survey .q-cont textarea {
   border-color: rgba(244, 239, 230, 0.22);
 }
-
-/* .page--inner .card.survey button[type="submit"] {
-  background: #f4efe6;
-  color: #1a1816;
-  border: 1px solid #f4efe6;
-  margin-top: 4px;
-}
-
-.page--inner .card.survey button[type="submit"]:hover,
-.page--inner .card.survey button[type="submit"]:focus-visible {
-  background: #ffffff;
-  outline: none;
-} */
 
 @media (max-width: 640px) {
   .page--inner .card.about,
@@ -1618,4 +1605,8 @@ h1.st-display {
 
 .center {
   text-align: center;
+}
+
+#primaryNavDrawerList a.is-current {
+  color: #c97a42;
 }
