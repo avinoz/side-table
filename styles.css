@@ -1148,7 +1148,7 @@ button:hover {
 }
 
 .st-contact-email a {
-  color: #e8b882;
+  color: #c97a42;
   text-decoration: none;
 }
 
@@ -1217,7 +1217,7 @@ button:hover {
 }
 
 .st-req {
-  color: #e8b882;
+  color: #c97a42;
 }
 
 .st-form input,
@@ -1330,7 +1330,7 @@ button:hover {
 }
 
 .site-footer.site-footer--theme a {
-  color: #e8b882;
+  color: #c97a42;
 }
 
 .site-footer.site-footer--theme .footer-label {
@@ -1426,7 +1426,7 @@ h1.st-display {
   font-size: clamp(1.55rem, 3.8vw, 1.95rem);
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: #e8b882;
+  color: #c97a42;
   margin: 26px 0 12px;
 }
 
@@ -1473,14 +1473,14 @@ h1.st-display {
 }
 
 .page--inner .card a {
-  color: #e8b882;
+  color: #c97a42;
 }
 
 .page--inner .card.survey h2 {
   font-family: "Bebas Neue", "Impact", sans-serif;
   font-size: clamp(1.9rem, 4.5vw, 2.5rem);
   letter-spacing: 0.04em;
-  color: #f4efe6;
+  color: rgba(244, 239, 230, 0.92);
   margin: 0 0 24px;
 }
 
@@ -1490,12 +1490,15 @@ h1.st-display {
 
 .page--inner .card.survey .q-cont label,
 .page--inner .card.survey legend {
-  font-family: "DM Sans", "Inter", Arial, sans-serif;
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
+  /* font-family: "DM Sans", "Inter", Arial, sans-serif; */
+  /* font-size: 0.95rem; */
+  /* font-weight: 600; */
+  /* letter-spacing: 0.06em; */
+  font-family: "Bebas Neue", "Impact", sans-serif;
+  font-size: clamp(1.55rem, 3.8vw, 1.95rem);
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: rgba(244, 239, 230, 0.92);
+  color: #c97a42;
 }
 
 .page--inner .card.survey fieldset {
