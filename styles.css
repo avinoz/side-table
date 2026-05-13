@@ -126,7 +126,7 @@ body.page-light::before {
 
 .site-nav a.is-current {
   border-bottom-color: #c97a42;
-  color: #c97a42;
+  /* color: #c97a42; */
 }
 
 .visually-hidden {
@@ -441,7 +441,6 @@ h2 {
 
 label,
 legend {
-  color: rgb(212, 110, 14);
   font-weight: 600;
   font-size: 0.9rem;
   text-transform: uppercase;
@@ -817,12 +816,15 @@ button:hover {
   transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.2s ease;
 }
 
+.st-btn--dark,
 .st-btn--light {
   background: #c97a42;
-  color: #1a1816;
+  color: #1a1816 !important;
   border: 1px solid #c97a42;
 }
 
+.st-btn--dark:hover,
+.st-btn--dark:focus-visible,
 .st-btn--light:hover,
 .st-btn--light:focus-visible {
   transform: translateY(-2px);
@@ -830,19 +832,22 @@ button:hover {
   outline: none;
 }
 
-.st-btn--dark {
+/* .st-btn--dark {
   background: #1a1816;
   color: #f4efe6;
   border: 1px solid #1a1816;
   cursor: pointer;
   font-family: inherit;
+  background: #c97a42;
+  color: #1a1816 !important;
+  border: 1px solid #c97a42;
 }
 
 .st-btn--dark:hover,
 .st-btn--dark:focus-visible {
   background: #2a2622;
   outline: none;
-}
+} */
 
 .st-hero-media {
   margin: 0;
@@ -1490,15 +1495,10 @@ h1.st-display {
 
 .page--inner .card.survey .q-cont label,
 .page--inner .card.survey legend {
-  /* font-family: "DM Sans", "Inter", Arial, sans-serif; */
-  /* font-size: 0.95rem; */
-  /* font-weight: 600; */
-  /* letter-spacing: 0.06em; */
   font-family: "Bebas Neue", "Impact", sans-serif;
   font-size: clamp(1.55rem, 3.8vw, 1.95rem);
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: #c97a42;
 }
 
 .page--inner .card.survey fieldset {
@@ -1534,7 +1534,7 @@ h1.st-display {
   border-color: rgba(244, 239, 230, 0.22);
 }
 
-.page--inner .card.survey button[type="submit"] {
+/* .page--inner .card.survey button[type="submit"] {
   background: #f4efe6;
   color: #1a1816;
   border: 1px solid #f4efe6;
@@ -1545,7 +1545,7 @@ h1.st-display {
 .page--inner .card.survey button[type="submit"]:focus-visible {
   background: #ffffff;
   outline: none;
-}
+} */
 
 @media (max-width: 640px) {
   .page--inner .card.about,
@@ -1565,6 +1565,7 @@ h1.st-display {
   .page--inner .card.survey h2 {
     margin-left: 0 !important;
     text-align: center;
+    color: #c97a42;
   }
 }
 
@@ -1613,4 +1614,8 @@ h1.st-display {
 
 .jobs-list {
   color: #ffffff;
+}
+
+.center {
+  text-align: center;
 }
