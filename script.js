@@ -45,6 +45,35 @@ function sheetsEndpointConfigured() {
   );
 }
 
+function setSurveySubmitLoading(isLoading) {
+  let el = document.getElementById("survey-submit-overlay");
+  if (isLoading) {
+    if (!el) {
+      el = document.createElement("div");
+      el.id = "survey-submit-overlay";
+      el.className = "survey-submit-overlay";
+      el.setAttribute("role", "status");
+      el.setAttribute("aria-live", "polite");
+      el.setAttribute("aria-busy", "true");
+      el.innerHTML = `
+        <div class="survey-submit-overlay-inner">
+          <div class="survey-submit-spinner" aria-hidden="true"></div>
+          <p class="survey-submit-overlay-text">Sending your responses…</p>
+        </div>
+      `;
+      document.body.appendChild(el);
+    }
+    el.classList.add("is-visible");
+    document.documentElement.classList.add("survey-submit-loading");
+  } else {
+    if (el) {
+      el.classList.remove("is-visible");
+      el.setAttribute("aria-busy", "false");
+    }
+    document.documentElement.classList.remove("survey-submit-loading");
+  }
+}
+
 if (emailForm) {
   emailForm.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -95,54 +124,62 @@ if (emailForm) {
 if (surveyForm) {
   surveyForm.addEventListener("submit", async (event) => {
     event.preventDefault();
-    const formData = new FormData(surveyForm);
+    const submitBtn = surveyForm.querySelector('button[type="submit"]');
+    if (submitBtn) submitBtn.disabled = true;
+    setSurveySubmitLoading(true);
+    try {
+      const formData = new FormData(surveyForm);
 
-    const response = {
-      submissionType: "survey",
-      drinkerType: (formData.get("drinkerType") || "").toString(),
-      drinksOrdered: formData.getAll("drinksOrdered"),
-      teasLoved: formData.getAll("teasLoved"),
-      breakfastItems: formData.getAll("breakfastItems"),
-      lunchItems: formData.getAll("lunchItems"),
-      cakeFlavors: formData.getAll("cakeFlavors"),
-      favoriteShops: (formData.get("favoriteShops") || "").toString().trim(),
-      dietaryRestrictions: (formData.get("dietaryRestrictions") || "").toString().trim(),
-      cafeElse: (formData.get("cafeElse") || "").toString().trim(),
-      contactInfo: (formData.get("contactInfo") || "").toString().trim(),
-      submittedAt: new Date().toISOString(),
-    };
+      const response = {
+        submissionType: "survey",
+        drinkerType: (formData.get("drinkerType") || "").toString(),
+        drinksOrdered: formData.getAll("drinksOrdered"),
+        teasLoved: formData.getAll("teasLoved"),
+        breakfastItems: formData.getAll("breakfastItems"),
+        lunchItems: formData.getAll("lunchItems"),
+        cakeFlavors: formData.getAll("cakeFlavors"),
+        favoriteShops: (formData.get("favoriteShops") || "").toString().trim(),
+        dietaryRestrictions: (formData.get("dietaryRestrictions") || "").toString().trim(),
+        cafeElse: (formData.get("cafeElse") || "").toString().trim(),
+        contactInfo: (formData.get("contactInfo") || "").toString().trim(),
+        submittedAt: new Date().toISOString(),
+      };
 
-    if (sheetsEndpointConfigured()) {
-      try {
-        const submitResponse = await fetch(GOOGLE_SHEETS_WEB_APP_URL, {
-          method: "POST",
-          headers: {
-            "Content-Type": "text/plain;charset=utf-8",
-          },
-          body: JSON.stringify(response),
-        });
+      if (sheetsEndpointConfigured()) {
+        try {
+          const submitResponse = await fetch(GOOGLE_SHEETS_WEB_APP_URL, {
+            method: "POST",
+            headers: {
+              "Content-Type": "text/plain;charset=utf-8",
+            },
+            body: JSON.stringify(response),
+          });
 
-        if (!submitResponse.ok) {
-          throw new Error("Failed to submit survey to Google Sheets.");
+          if (!submitResponse.ok) {
+            throw new Error("Failed to submit survey to Google Sheets.");
+          }
+        } catch (error) {
+          showSideTableMessage(
+            "Darn, we're having some technical difficulties. Please try again."
+          );
+          return;
         }
-      } catch (error) {
-        showSideTableMessage(
-          "Darn, we're having some technical difficulties. Please try again."
+      } else {
+        const surveyResponses = JSON.parse(
+          localStorage.getItem("sideTableSurveyResponses") || "[]"
         );
-        return;
+        surveyResponses.push(response);
+        localStorage.setItem("sideTableSurveyResponses", JSON.stringify(surveyResponses));
       }
-    } else {
-      const surveyResponses = JSON.parse(
-        localStorage.getItem("sideTableSurveyResponses") || "[]"
-      );
-      surveyResponses.push(response);
-      localStorage.setItem("sideTableSurveyResponses", JSON.stringify(surveyResponses));
-    }
 
-    surveyForm.reset();
-    showSideTableMessage(
-      "Thanks for your opinion! We'll try to incorporate them!"
-    );
+      surveyForm.reset();
+      showSideTableMessage(
+        "Thanks for your opinion! We'll try to incorporate them!"
+      );
+    } finally {
+      setSurveySubmitLoading(false);
+      if (submitBtn) submitBtn.disabled = false;
+    }
   });
 }
 

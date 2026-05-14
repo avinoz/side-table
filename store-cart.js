@@ -8,22 +8,22 @@
     "gift-50": {
       name: "$50 gift card (pay $45 — 10% off)",
       priceCents: 4500,
-      image: "./store-gift-card-50.png",
+      image: "./banner-width-s.png",
     },
     hat: {
       name: "Side Table Canvas Hat",
       priceCents: 2800,
-      image: "https://picsum.photos/seed/sidetablehat/400/400.jpg",
+      image: "./store-hat.jpg",
     },
     coffee: {
       name: "House Blend Coffee (12 oz)",
       priceCents: 1800,
-      image: "https://picsum.photos/seed/sidetablecoffee/400/400.jpg",
+      image: "./store-coffee.jpg",
     },
     tea: {
       name: "Loose-Leaf Tea Canister",
       priceCents: 2200,
-      image: "https://picsum.photos/seed/sidetabletea/400/400.jpg",
+      image: "./store-tea.jpg",
     },
   };
 
