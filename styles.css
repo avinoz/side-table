@@ -985,9 +985,11 @@ button:hover {
         text-align: center;
       }
       p {
-        /* padding: 0 30px; */
-        padding: 0;
+        padding: 0 30px;
         width: 100%;
+      }
+      .store-line-hint {
+        padding: 0;
       }
     }
   }
