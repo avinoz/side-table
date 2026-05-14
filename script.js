@@ -1,8 +1,10 @@
 let sideTableDialogRedirectHref = null;
+let sideTableDialogOnClose = null;
 
 function showSideTableMessage(message, options) {
   const opts = options || {};
   sideTableDialogRedirectHref = opts.redirectAfterClose || null;
+  sideTableDialogOnClose = typeof opts.onClose === "function" ? opts.onClose : null;
 
   let overlay = document.getElementById("side-table-dialog-overlay");
   if (!overlay) {
@@ -24,6 +26,11 @@ function showSideTableMessage(message, options) {
       overlay.setAttribute("aria-hidden", "true");
       const href = sideTableDialogRedirectHref;
       sideTableDialogRedirectHref = null;
+      const onClose = sideTableDialogOnClose;
+      sideTableDialogOnClose = null;
+      if (onClose) {
+        onClose();
+      }
       if (href) {
         window.location.assign(href);
       }

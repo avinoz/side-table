@@ -301,7 +301,7 @@
         summary +
         ". <br /><br />Unfortunately, Online checkout is not live yet. Please email hello@sidetablecoffee.com to purchase.";
       if (typeof showSideTableMessage === "function") {
-        showSideTableMessage(msg);
+        showSideTableMessage(msg, { onClose: closeDrawer });
       }
     });
   }
