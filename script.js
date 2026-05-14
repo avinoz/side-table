@@ -28,7 +28,7 @@ function showSideTableMessage(message) {
     });
   }
 
-  overlay.querySelector(".side-table-dialog-message").textContent = message;
+  overlay.querySelector(".side-table-dialog-message").innerHTML = message;
   overlay.classList.add("is-open");
   overlay.removeAttribute("aria-hidden");
 }
@@ -235,13 +235,17 @@ if (surveyForm) {
 })();
 
 (function initHomeReveal() {
-  const root = document.querySelector(".page--home");
-  if (!root) return;
+  const roots = document.querySelectorAll(".page--home, .page--store");
+  if (!roots.length) return;
 
   const revealSelector = ".reveal-h2, .reveal-img";
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (!reduceMotion) {
-    const reveals = root.querySelectorAll(revealSelector);
+    const reveals = [];
+    roots.forEach((root) => {
+      root.querySelectorAll(revealSelector).forEach((el) => reveals.push(el));
+    });
+    if (!reveals.length) return;
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -255,7 +259,9 @@ if (surveyForm) {
     );
     reveals.forEach((el) => io.observe(el));
   } else {
-    root.querySelectorAll(revealSelector).forEach((el) => el.classList.add("is-visible"));
+    roots.forEach((root) => {
+      root.querySelectorAll(revealSelector).forEach((el) => el.classList.add("is-visible"));
+    });
   }
 })();
 
