@@ -1,4 +1,9 @@
-function showSideTableMessage(message) {
+let sideTableDialogRedirectHref = null;
+
+function showSideTableMessage(message, options) {
+  const opts = options || {};
+  sideTableDialogRedirectHref = opts.redirectAfterClose || null;
+
   let overlay = document.getElementById("side-table-dialog-overlay");
   if (!overlay) {
     overlay = document.createElement("div");
@@ -17,6 +22,11 @@ function showSideTableMessage(message) {
     const close = () => {
       overlay.classList.remove("is-open");
       overlay.setAttribute("aria-hidden", "true");
+      const href = sideTableDialogRedirectHref;
+      sideTableDialogRedirectHref = null;
+      if (href) {
+        window.location.assign(href);
+      }
     };
 
     overlay.querySelector(".side-table-dialog-close").addEventListener("click", close);
@@ -173,9 +183,9 @@ if (surveyForm) {
       }
 
       surveyForm.reset();
-      showSideTableMessage(
-        "Thanks for your opinion! We'll try to incorporate them!"
-      );
+      showSideTableMessage("Thanks for your opinion! We'll try to incorporate them!", {
+        redirectAfterClose: "index.html",
+      });
     } finally {
       setSurveySubmitLoading(false);
       if (submitBtn) submitBtn.disabled = false;
