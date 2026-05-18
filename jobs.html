@@ -9,6 +9,7 @@
       content="Careers at Side Table — neighborhood coffee and tea in South Berkeley. We’re hiring for our opening team."
     />
     <link rel="icon" type="image/png" href="./favicon-laccio.png" />
+    <link rel="apple-touch-icon" href="./favicon-laccio.png" />
     <meta property="og:image" content="./thumbnail.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content="./thumbnail.jpg" />
@@ -30,34 +31,7 @@
         <a class="site-header-img" href="./index.html" aria-label="Side Table">
           <img src="./st-scribble.png" alt="Side Table" class="site-header-wordmark" />
         </a>
-        <button
-          type="button"
-          class="store-cart-toggle"
-          id="storeCartToggle"
-          aria-expanded="false"
-          aria-controls="storeCartDrawer"
-          aria-label="Shopping cart, empty"
-        >
-          <span class="store-cart-toggle-icon" aria-hidden="true">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="22"
-              height="22"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <circle cx="9" cy="21" r="1" />
-              <circle cx="20" cy="21" r="1" />
-              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
-            </svg>
-          </span>
-          <span class="store-cart-badge" id="storeCartBadge" hidden>0</span>
-        </button>
-        <button type="button" class="site-nav-toggle" id="siteNavToggle" aria-expanded="false" aria-controls="siteNavDrawer">
+<button type="button" class="site-nav-toggle" id="siteNavToggle" aria-expanded="false" aria-controls="siteNavDrawer">
           <span class="site-nav-toggle-bars" aria-hidden="true"><span></span><span></span><span></span></span>
           <span class="visually-hidden">Menu</span>
         </button>
@@ -68,7 +42,7 @@
             <li><a href="./survey.html">Survey</a></li>
             <li><a href="./jobs.html" class="is-current">Jobs</a></li>
             <li class="site-nav-li--order-desktop">
-              <a class="site-nav-cta site-nav-store" href="./store.html">
+              <a class="site-nav-cta site-nav-store" href="https://sidetablecoffee.square.site/" rel="noopener noreferrer">
                 <span class="site-nav-store-row" aria-hidden="true">
                   <span class="site-nav-order-icon">
                     <svg
@@ -89,10 +63,9 @@
                   </span>
                   <span class="site-nav-store-text">Store</span>
                 </span>
-                <span class="site-nav-order-badge" hidden>0</span>
               </a>
             </li>
-            <li class="site-nav-li--order-mobile"><a href="./store.html">Store</a></li>
+            <li class="site-nav-li--order-mobile"><a href="https://sidetablecoffee.square.site/" rel="noopener noreferrer">Store</a></li>
           </ul>
         </nav>
       </div>
@@ -118,26 +91,6 @@
           <ul id="primaryNavDrawerList"></ul>
         </nav>
       </div>
-    </div>
-
-    <div class="store-cart-drawer" id="storeCartDrawer" aria-hidden="true">
-      <div class="store-cart-backdrop" id="storeCartBackdrop"></div>
-      <aside class="store-cart-panel" role="dialog" aria-modal="true" aria-labelledby="storeCartTitle">
-        <div class="store-cart-head">
-          <h2 id="storeCartTitle">Cart</h2>
-          <button type="button" class="store-cart-close" id="storeCartClose" aria-label="Close cart">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <ul class="store-cart-lines" id="storeCartLines"></ul>
-        <div class="store-cart-foot">
-          <div class="store-cart-total-row">
-            <span>Total</span>
-            <strong id="storeCartTotal">$0.00</strong>
-          </div>
-          <button type="button" class="st-btn st-btn--light store-cart-checkout" id="storeCheckoutBtn">Checkout</button>
-        </div>
-      </aside>
     </div>
 
     <main class="page page--inner" id="main-content">
@@ -243,6 +196,5 @@
     </footer>
 
     <script src="./script.js"></script>
-    <script src="./store-cart.js"></script>
-  </body>
+</body>
 </html>
