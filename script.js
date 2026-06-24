@@ -341,6 +341,44 @@ if (surveyForm) {
   }
 })();
 
+function getPageScrollY() {
+  return document.body.scrollTop || document.documentElement.scrollTop || window.scrollY || 0;
+}
+
+function initScrollTriggerScroller() {
+  const scroller = document.body;
+
+  ScrollTrigger.scrollerProxy(scroller, {
+    scrollTop(value) {
+      if (arguments.length) {
+        scroller.scrollTop = value;
+      }
+      return scroller.scrollTop;
+    },
+    getBoundingClientRect() {
+      return {
+        top: 0,
+        left: 0,
+        width: window.innerWidth,
+        height: window.innerHeight,
+      };
+    },
+  });
+
+  ScrollTrigger.defaults({ scroller });
+  scroller.addEventListener("scroll", ScrollTrigger.update);
+
+  let refreshTimer;
+  const scheduleScrollRefresh = () => {
+    clearTimeout(refreshTimer);
+    refreshTimer = window.setTimeout(() => ScrollTrigger.refresh(), 150);
+  };
+
+  window.addEventListener("resize", scheduleScrollRefresh);
+  window.addEventListener("orientationchange", scheduleScrollRefresh);
+  window.addEventListener("load", scheduleScrollRefresh);
+}
+
 function splitLineWords(selector) {
   document.querySelectorAll(selector).forEach((line) => {
     const text = line.textContent.trim();
@@ -383,7 +421,7 @@ function initMascotWalkScroll() {
 
   Object.entries(parts).forEach(([key, el]) => {
     if (el && pivot[key]) {
-      gsap.set(el, { transformOrigin: pivot[key] });
+      gsap.set(el, { transformOrigin: pivot[key], force3D: true });
     }
   });
 
@@ -432,9 +470,15 @@ function initMascotWalkScroll() {
     const heroInner = hero.querySelector(".st-hero-inner");
     if (!heroInner) return;
 
-    const walkerLeft = walker.getBoundingClientRect().left;
-    const endLeft = heroInner.getBoundingClientRect().left + 12;
-    walkTravel = Math.max(0, walkerLeft - endLeft);
+    const innerRect = heroInner.getBoundingClientRect();
+    const walkerRect = walker.getBoundingClientRect();
+    const targetLeft = innerRect.left + 12;
+
+    walkTravel = Math.max(0, walkerRect.left - targetLeft);
+
+    if (walkTravel < 12 && window.matchMedia("(max-width: 900px)").matches) {
+      walkTravel = Math.max(walkTravel, heroInner.clientWidth * 0.24);
+    }
   };
 
   measureWalkTravel();
@@ -445,7 +489,7 @@ function initMascotWalkScroll() {
   };
 
   const getWalkScrollStart = () => {
-    const docTop = hero.getBoundingClientRect().top + window.scrollY;
+    const docTop = hero.getBoundingClientRect().top + getPageScrollY();
     return `top ${Math.round(docTop)}px`;
   };
 
@@ -472,7 +516,7 @@ function initHeroPatternScroll() {
   const getShift = () => hero.offsetHeight;
 
   const getWalkScrollStart = () => {
-    const docTop = hero.getBoundingClientRect().top + window.scrollY;
+    const docTop = hero.getBoundingClientRect().top + getPageScrollY();
     return `top ${Math.round(docTop)}px`;
   };
 
@@ -491,6 +535,7 @@ function initHeroPatternScroll() {
 
 function initCreativeScrollAnimations() {
   gsap.registerPlugin(ScrollTrigger);
+  initScrollTriggerScroller();
   document.documentElement.classList.add("js-gsap-active");
 
   splitLineWords(".js-split-line");
@@ -506,8 +551,8 @@ function initCreativeScrollAnimations() {
   loadTl
     .to(".st-mascot-walker", { opacity: 1, y: 0, scale: 1, duration: 1.1 })
     .to(".st-kicker", { opacity: 1, y: 0, duration: 0.65 }, "-=0.55")
-    .to(".st-lede", { opacity: 1, y: 0, duration: 0.75 }, "-=0.45")
-    .to(".split-inner", { opacity: 1, y: 0, duration: 0.7, stagger: 0.08 }, "-=0.5")
+    .to(".split-inner", { opacity: 1, y: 0, duration: 0.7, stagger: 0.08 }, "-=0.45")
+    .to(".st-lede", { opacity: 1, y: 0, duration: 0.75 }, "-=0.5")
     .to(".st-hero-actions", { opacity: 1, y: 0, duration: 0.65 }, "-=0.35");
 
   initMascotWalkScroll();

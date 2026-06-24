@@ -639,6 +639,10 @@ html.survey-submit-loading body {
     --site-header-h: 64px;
   }
 
+  #visit {
+    display: none;
+  }
+
   .site-header {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -1021,6 +1025,7 @@ html.js-gsap-active .page--home .reveal-img img {
   flex-direction: column;
   align-items: flex-start;
   gap: 0;
+  margin-bottom: clamp(56px, 14vw, 112px);
 }
 
 .st-marquee {
