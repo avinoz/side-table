@@ -558,17 +558,35 @@ function initCreativeScrollAnimations() {
   initMascotWalkScroll();
   initHeroPatternScroll();
 
-  gsap.to(".st-hero-copy", {
-    scrollTrigger: {
+  const heroCopy = hero.querySelector(".st-hero-copy");
+  if (heroCopy) {
+    gsap.set(heroCopy, { opacity: 1, y: 0 });
+
+    ScrollTrigger.create({
       trigger: hero,
       start: "top top",
       end: "bottom top",
       scrub: 1.4,
-    },
-    y: 40,
-    opacity: 0.2,
-    ease: "none",
-  });
+      onUpdate(self) {
+        const progress = self.progress;
+        const fadeStart = 0.05;
+        const fadeEnd = 0.6;
+
+        if (progress <= fadeStart || progress >= fadeEnd) {
+          gsap.set(heroCopy, { opacity: 1, y: 0 });
+          return;
+        }
+
+        const t = (progress - fadeStart) / (fadeEnd - fadeStart);
+        gsap.set(heroCopy, {
+          opacity: gsap.utils.interpolate(0.65, 1, t),
+          y: gsap.utils.interpolate(24, 0, t),
+        });
+      },
+      onLeave: () => gsap.set(heroCopy, { opacity: 1, y: 0 }),
+      onLeaveBack: () => gsap.set(heroCopy, { opacity: 1, y: 0 }),
+    });
+  }
 
   gsap.utils.toArray(".st-moment-line").forEach((line, i) => {
     gsap.from(line, {
