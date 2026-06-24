@@ -18,14 +18,10 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <video class="bg-video" autoplay muted loop playsinline>
-      <source src="./st-bg.mp4" type="video/mp4" />
-    </video>
-
     <header class="site-header">
       <div class="site-header-inner">
         <a class="site-header-img" href="./index.html" aria-label="Side Table">
-          <img src="./neon-2.png" alt="Side Table" class="site-header-wordmark" />
+          <img src="./neon-2.png" alt="Side Table Coffee" class="site-header-wordmark" />
         </a>
         <button type="button" class="site-nav-toggle" id="siteNavToggle" aria-expanded="false" aria-controls="siteNavDrawer">
           <span class="site-nav-toggle-bars" aria-hidden="true"><span></span><span></span><span></span></span>
@@ -90,34 +86,111 @@
     </div>
 
     <main class="page page--home" id="main-content">
-      <section class="st-hero" aria-label="Welcome">
-        <div class="st-hero-inner">
-          <div class="st-hero-copy">
-            <p class="st-kicker">Side Table · South Berkeley</p>
-            <p class="st-lede">
-              Your neighborhood living room serving the finest coffee and tea paired with real food in the heart of South Berkeley.
-            </p>
-            <h1 class="st-display">Great Brews.<br>Better Crumbs.</h1>
-            <a class="st-btn st-btn--light" href="./survey.html">Help Us With Our Menu</a>
-            <p class="st-hours-line">Coming Summer 2026</p>
+      <section class="st-hero st-hero--brand" aria-label="Welcome">
+        <div class="st-hero-scroll-stage">
+          <div class="st-hero-inner">
+            <div class="st-hero-copy">
+              <p class="st-kicker reveal-up reveal-up--delay-1">South Berkeley · Coming Summer 2026</p>
+              <p class="st-lede reveal-up reveal-up--delay-2">
+                Your neighborhood living room serving the finest coffee and tea paired with real food in the heart of South Berkeley.
+              </p>
+              <h1 class="st-display reveal-up reveal-up--delay-3">
+                <span class="st-display-line js-split-line">Great Brews.</span>
+                <span class="st-display-line js-split-line">Better Crumbs.</span>
+              </h1>
+              <div class="st-hero-actions reveal-up reveal-up--delay-4">
+                <a class="st-btn st-btn--light" href="./survey.html">Help Us With Our Menu</a>
+              </div>
+            </div>
+            <div class="st-hero-mascot-col">
+              <figure class="st-hero-brand st-mascot-walker reveal-up" aria-label="Side Table mascot">
+                <div class="st-mascot-stage">
+                  <img
+                    class="st-mascot-layer st-mascot-layer--leg-right"
+                    src="./mascot/leg-right.png"
+                    alt=""
+                    width="913"
+                    height="1024"
+                    loading="eager"
+                    decoding="async"
+                  />
+                  <img
+                    class="st-mascot-layer st-mascot-layer--leg-left"
+                    src="./mascot/leg-left.png"
+                    alt=""
+                    width="913"
+                    height="1024"
+                    loading="eager"
+                    decoding="async"
+                  />
+                  <img
+                    class="st-mascot-layer st-mascot-layer--arm-right"
+                    src="./mascot/arm-right.png"
+                    alt=""
+                    width="913"
+                    height="1024"
+                    loading="eager"
+                    decoding="async"
+                  />
+                  <img
+                    class="st-mascot-layer st-mascot-layer--body"
+                    src="./mascot/body.png"
+                    alt=""
+                    width="913"
+                    height="1024"
+                    loading="eager"
+                    fetchpriority="high"
+                    decoding="async"
+                  />
+                  <img
+                    class="st-mascot-layer st-mascot-layer--arm-left"
+                    src="./mascot/arm-left.png"
+                    alt=""
+                    width="913"
+                    height="1024"
+                    loading="eager"
+                    decoding="async"
+                  />
+                  <img
+                    class="st-mascot-layer st-mascot-layer--marks"
+                    src="./mascot/marks.png"
+                    alt=""
+                    width="913"
+                    height="1024"
+                    loading="eager"
+                    decoding="async"
+                  />
+                </div>
+              </figure>
+            </div>
           </div>
-          <figure class="st-hero-media reveal-img reveal-img--from-right">
-            <img
-              src="./hero.jpg"
-              alt=""
-              width="720"
-              height="920"
-              loading="eager"
-              fetchpriority="high"
-            />
-          </figure>
+        </div>
+      </section>
+
+      <div class="st-marquee st-marquee--hero" role="presentation" aria-hidden="true">
+        <div class="st-marquee-track">
+          <span class="st-marquee-segment">Craft food & drinks in a community space · • • • • • • • · </span>
+          <span class="st-marquee-segment" aria-hidden="true">Craft food & drinks in a community space · • • • • • • • · </span>
+        </div>
+      </div>
+
+      <section id="st-moment" class="st-moment" aria-label="Announcement">
+        <div class="st-moment-video" aria-hidden="true">
+          <video class="st-moment-video-media" autoplay muted loop playsinline preload="metadata">
+            <source src="./st-bg.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div class="st-moment-inner">
+          <p class="st-moment-line reveal-up">There's a new</p>
+          <p class="st-moment-line reveal-up reveal-up--delay-1">neighborhood spot</p>
+          <p class="st-moment-line st-moment-line--accent reveal-up reveal-up--delay-2">coming soon.</p>
         </div>
       </section>
 
       <section id="visit" class="st-band st-band--visit">
         <div class="st-band-inner">
           <div class="st-visit-grid">
-            <div>
+            <div class="reveal-up">
               <h3 class="st-label">Where</h3>
               <p class="st-visit-text">Yet To Be Announced<br />Berkeley, CA 94703</p>
               <!-- <a
@@ -127,7 +200,7 @@
                 rel="noopener noreferrer"
                 >Find on maps</a> -->
             </div>
-            <div>
+            <div class="reveal-up reveal-up--delay-1">
               <h2 class="st-section-title reveal-h2">Visit us</h2>
               <div class="st-visit-cont">
                 <h3 class="st-label">Hours</h3>
@@ -140,27 +213,35 @@
 
       <section class="st-story" aria-labelledby="st-story-heading">
         <div class="st-story-inner">
-          <p class="st-story-index">About Us</p>
+          <p class="st-story-index reveal-up">About Us</p>
           <div class="st-story-grid">
             <div class="st-story-copy">
               <h2 id="st-story-heading" class="st-story-heading reveal-h2">By locals.<br>For locals</h2>
-              <p class="st-story-body">
+              <p class="st-story-body reveal-up reveal-up--delay-2">
                 At Side Table, we believe neighborhoods are built on shared stories. We’ve traded the "to-go" 
                 hustle for a spacious South Berkeley sanctuary designed for you to settle in. Whether you're 
                 here for a slow brunch or a change of scenery from your home office, our quality coffee and 
                 seasonal menu are all about helping you hit pause and feel at home.
               </p>
             </div>
-            <figure class="st-story-media reveal-img reveal-img--from-left">
-              <img
-                src="./streetview-dusk.jpg"
-                alt=""
-                width="640"
-                height="320"
-                loading="lazy"
-              />
-            </figure>
           </div>
+        </div>
+      </section>
+
+      <section class="st-community" aria-label="Community">
+        <div class="st-community-marquee" role="presentation" aria-hidden="true">
+          <div class="st-community-marquee-track">
+            <span>we're building this for our neighborhood · we're building this for our neighborhood · </span>
+            <span aria-hidden="true">we're building this for our neighborhood · we're building this for our neighborhood · </span>
+          </div>
+        </div>
+        <div class="st-community-inner">
+          <h2 class="st-community-title reveal-up">community</h2>
+          <ul class="st-community-list">
+            <li class="reveal-up reveal-up--delay-1">A living room, not a drive-through.</li>
+            <li class="reveal-up reveal-up--delay-2">Room to stay awhile — and actually want to.</li>
+            <li class="reveal-up reveal-up--delay-3">Coffee and food worth slowing down for.</li>
+          </ul>
         </div>
       </section>
 
@@ -168,7 +249,7 @@
         <div class="st-shop-inner">
           <h2 id="st-shop-heading" class="st-shop-title reveal-h2">What We're Bringing</h2>
           <div class="st-shop-grid">
-            <article class="st-shop-card">
+            <article class="st-shop-card reveal-up">
               <div class="st-shop-card-media reveal-img reveal-img--from-right">
                 <img src="./img-coffee.jpg" alt="" width="480" height="360" loading="lazy" />
               </div>
@@ -176,7 +257,7 @@
               <p class="st-shop-card-desc">Expertly pulled espresso and a curated library of loose-leaf teas. We source direct from the farms, single origin beans and tea leaves.</p>
               <!-- <a class="st-shop-card-link" href="https://sidetablecoffee.square.site/" rel="noopener noreferrer">Shop drinks</a> -->
             </article>
-            <article class="st-shop-card">
+            <article class="st-shop-card reveal-up reveal-up--delay-1">
               <div class="st-shop-card-media reveal-img reveal-img--from-bottom">
                 <img src="./img-space.jpg" alt="" width="480" height="360" loading="lazy" />
               </div>
@@ -184,7 +265,7 @@
               <p class="st-shop-card-desc">We’re the neighborhood’s go-to spot to actually sit down and stay a while. It’s a big, welcoming space designed for slow weekend brunches, mid-day meetings, or just escaping the house for a bit of atmosphere.</p>
               <!-- <a class="st-shop-card-link" href="https://sidetablecoffee.square.site/" rel="noopener noreferrer">Shop coffee</a> -->
             </article>
-            <article class="st-shop-card">
+            <article class="st-shop-card reveal-up reveal-up--delay-2">
               <div class="st-shop-card-media reveal-img reveal-img--from-top">
                 <img src="./img-food.jpg"  alt="" width="480" height="360" loading="lazy" />
               </div>
@@ -198,11 +279,11 @@
 
       <section class="st-contact" aria-labelledby="st-contact-heading">
         <div class="st-contact-inner">
-          <div class="st-contact-intro">
+          <div class="st-contact-intro reveal-up">
             <h2 id="st-contact-heading" class="st-contact-title reveal-h2">Be in the Know</h2>
           </div>
           <div class="st-contact-forms">
-            <div class="st-card st-card--news">
+            <div class="st-card st-card--news reveal-up reveal-up--delay-1">
               <p class="st-card-note">Updates on our soft opening, menu drops, and other neighborhood events.</p>
               <form id="emailForm" class="st-form st-form--compact">
                 <label class="st-field">
@@ -257,6 +338,8 @@
       </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
     <script src="./script.js"></script>
 </body>
 </html>
