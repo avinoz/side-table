@@ -783,12 +783,20 @@ function initFooterStanding() {
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const updateStanding = () => {
-    const rect = footer.getBoundingClientRect();
+    const scrollY = getPageScrollY();
     const viewportH = window.innerHeight;
-    const start = viewportH;
-    const end = viewportH * 0.42;
-    const range = start - end;
-    const progress = reduceMotion || range <= 0 ? 1 : Math.min(1, Math.max(0, (start - rect.top) / range));
+    const footerTop = footer.getBoundingClientRect().top + scrollY;
+    const startScroll = footerTop - viewportH;
+    const maxScroll = Math.max(
+      document.body.scrollHeight - document.body.clientHeight,
+      document.documentElement.scrollHeight - viewportH,
+      0
+    );
+    const range = maxScroll - startScroll;
+    const progress =
+      reduceMotion || range <= 0
+        ? 1
+        : Math.min(1, Math.max(0, (scrollY - startScroll) / range));
     standing.style.setProperty("--standing-progress", String(progress));
   };
 
