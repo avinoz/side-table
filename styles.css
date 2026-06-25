@@ -14,6 +14,8 @@
   --accent-blush: #f8ebe2;
   --accent-peach: #e29883;
   --accent-pink: #dd6580;
+  --accent-blue: #88baaa;
+  --accent-yellow: #d2b36f;
   --accent-pink-dark: #c95572;
   --accent-green: #3d7747;
   --site-header-h: 72px;
@@ -736,7 +738,7 @@ html.survey-submit-loading body {
     width: 120%;
     margin-left: -10%;
     padding: 15px 20px;
-    color: var(--accent-slate);
+    color: var(--cream);
   }
 
   .site-nav-toggle {
@@ -1163,8 +1165,8 @@ html.js-gsap-active .page--home .reveal-img img {
 .st-moment-line {
   margin: 0;
   font-family: "Bebas Neue", "Impact", sans-serif;
-  font-size: clamp(3.5rem, 12vw, 8rem);
-  line-height: 0.88;
+  font-size: clamp(4rem, 8vw, 6rem);
+  line-height: 0.95;
   letter-spacing: 0.02em;
   text-transform: uppercase;
 }
@@ -1574,10 +1576,11 @@ html.js-gsap-active .page--home .reveal-img img {
 
 .st-shop-card-title {
   margin: 18px 20px 8px;
-  font-size: 1.2rem;
+  font-family: "Grape Nuts", cursive;
+  font-size: 1.8rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  text-transform: none;
 }
 
 .st-shop-card-desc {
@@ -2039,7 +2042,10 @@ html.js-gsap-active .page--home .reveal-img img {
 
 .page--jobs .st-display,
 .page--jobs h1.st-display {
-  color: var(--cream);
+  color: var(--accent-yellow);
+  span {
+    color: var(--accent-blue);
+  }
 }
 
 .page--jobs .st-lede {
@@ -2063,6 +2069,10 @@ html.js-gsap-active .page--home .reveal-img img {
   max-width: 16ch;
   margin-left: auto;
   margin-right: auto;
+  color: var(--accent-blue);
+  span {
+    color: var(--accent-pink);
+  }
 }
 
 h1.st-display {
@@ -2281,10 +2291,11 @@ h1.st-display {
 
 .page--store #menus .store-product-card-heading-row .st-shop-card-title {
   margin: 0;
+  font-family: "Grape Nuts", cursive;
   font-size: 1rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-transform: none;
   color: #1a1816;
   line-height: 1.2;
   flex: 1;
