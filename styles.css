@@ -184,8 +184,8 @@ body::before {
 
 .site-nav-toggle-bars span {
   display: block;
-  height: 1px;
-  background: #ffffff;
+  height: 2px;
+  background: var(--brown);
   border-radius: 1px;
 }
 
@@ -227,7 +227,7 @@ body::before {
 
 .site-nav-drawer-close:hover,
 .site-nav-drawer-close:focus-visible {
-  background: rgba(0, 0, 0, 0.06);
+  background: none;
   outline: none;
 }
 
@@ -779,7 +779,7 @@ html.survey-submit-loading body {
   }
 
   .site-header {
-    padding: 10px 10px 10px 35px;
+    padding: 10px 10px 10px 20px;
   }
   .site-header-inner {
     flex-direction: row;
