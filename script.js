@@ -766,6 +766,40 @@ function initFixedPatternScroll(bg, cssVar) {
   initFixedPatternScroll(document.querySelector(".page--jobs-bg"), "--shop-pattern-x");
 })();
 
+function initFooterStanding() {
+  const footer = document.querySelector(".site-footer");
+  if (!footer) return;
+
+  let standing = document.querySelector(".site-footer-standing");
+  if (!standing) {
+    standing = document.createElement("div");
+    standing.className = "site-footer-standing";
+    standing.setAttribute("aria-hidden", "true");
+    standing.innerHTML =
+      '<img src="./standing.png" alt="" width="420" height="920" loading="lazy" decoding="async" />';
+    document.body.appendChild(standing);
+  }
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const updateStanding = () => {
+    const rect = footer.getBoundingClientRect();
+    const viewportH = window.innerHeight;
+    const start = viewportH;
+    const end = viewportH * 0.42;
+    const range = start - end;
+    const progress = reduceMotion || range <= 0 ? 1 : Math.min(1, Math.max(0, (start - rect.top) / range));
+    standing.style.setProperty("--standing-progress", String(progress));
+  };
+
+  document.body.addEventListener("scroll", updateStanding, { passive: true });
+  window.addEventListener("resize", updateStanding);
+  window.addEventListener("load", updateStanding);
+  updateStanding();
+}
+
+initFooterStanding();
+
 const contactForm = document.getElementById("contactForm");
 if (contactForm) {
   contactForm.addEventListener("submit", (event) => {

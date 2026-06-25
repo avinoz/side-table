@@ -1544,7 +1544,7 @@ html.js-gsap-active .page--home .reveal-img img {
   padding: 0 0 22px;
   background: var(--cream-deep);
   border: 8px solid var(--accent-green);
-  box-shadow: 10px 10px 0 var(--accent-green);
+  box-shadow: 10px 10px 0 var(--accent-pink-dark);
   overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -1902,6 +1902,43 @@ html.js-gsap-active .page--home .reveal-img img {
   background: var(--accent-slate);
   border-top: none;
   color: var(--cream);
+  overflow: visible;
+}
+
+.site-footer-standing {
+  position: fixed;
+  left: -2vw;
+  bottom: 0;
+  z-index: 1001;
+  margin: 0;
+  pointer-events: none;
+  transform: translateX(calc((1 - var(--standing-progress, 0)) * -100%));
+  will-change: transform;
+}
+
+.site-footer-standing img {
+  display: block;
+  width: clamp(180px, 28vw, 320px);
+  height: auto;
+}
+
+@media (max-width: 900px) {
+  .site-footer-standing img {
+    width: clamp(160px, 42vw, 260px);
+  }
+}
+
+@media (max-width: 640px) {
+  .site-footer-standing {
+    left: -10vw;
+  }
+
+  .site-footer-standing img {
+    width: auto;
+    height: 75vh;
+    height: 75dvh;
+    max-width: none;
+  }
 }
 
 @media (max-width: 640px) {
@@ -2924,6 +2961,11 @@ h2.card-header {
   }
 
   .st-shop-card:hover .st-shop-card-media img {
+    transform: none;
+  }
+
+  .site-footer-standing {
+    --standing-progress: 1;
     transform: none;
   }
 
