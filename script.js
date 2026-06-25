@@ -533,6 +533,25 @@ function initHeroPatternScroll() {
   });
 }
 
+function initShopPatternScroll() {
+  const shop = document.querySelector(".page--home .st-shop");
+  if (!shop) return;
+
+  const getShift = () => shop.offsetHeight;
+
+  gsap.to(shop, {
+    "--shop-pattern-x": () => `${getShift()}px`,
+    ease: "none",
+    scrollTrigger: {
+      trigger: shop,
+      start: "top bottom",
+      end: "bottom top",
+      scrub: 0.8,
+      invalidateOnRefresh: true,
+    },
+  });
+}
+
 function initCreativeScrollAnimations() {
   gsap.registerPlugin(ScrollTrigger);
   initScrollTriggerScroller();
@@ -557,6 +576,7 @@ function initCreativeScrollAnimations() {
 
   initMascotWalkScroll();
   initHeroPatternScroll();
+  initShopPatternScroll();
 
   const heroCopy = hero.querySelector(".st-hero-copy");
   if (heroCopy) {
@@ -603,7 +623,7 @@ function initCreativeScrollAnimations() {
     });
   });
 
-  gsap.utils.toArray(".st-band--visit .reveal-up").forEach((el, i) => {
+  gsap.utils.toArray(".st-moment .st-visit-grid .reveal-up").forEach((el, i) => {
     gsap.from(el, {
       scrollTrigger: {
         trigger: el,
@@ -617,9 +637,9 @@ function initCreativeScrollAnimations() {
     });
   });
 
-  gsap.from(".st-section-title", {
+  gsap.from(".st-moment .st-section-title", {
     scrollTrigger: {
-      trigger: ".st-section-title",
+      trigger: ".st-moment .st-section-title",
       start: "top 85%",
       toggleActions: "play none none reverse",
     },

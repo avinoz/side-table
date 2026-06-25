@@ -30,7 +30,7 @@
         <nav class="site-nav site-nav--desktop" id="siteNavDesktop" aria-label="Primary">
           <ul id="primaryNavList">
             <li><a href="./index.html" class="is-current">Home</a></li>
-            <li><a href="#visit">About Us</a></li>
+            <li class="site-nav-li--desktop-only"><a href="#visit">About Us</a></li>
             <li><a href="./survey.html">Survey</a></li>
             <li><a href="./jobs.html">Jobs</a></li>
             <li class="site-nav-li--order-desktop">
@@ -169,44 +169,74 @@
 
       <div class="st-marquee st-marquee--hero" role="presentation" aria-hidden="true">
         <div class="st-marquee-track">
-          <span class="st-marquee-segment">Craft food & drinks in a community space · • • • • • • • · </span>
-          <span class="st-marquee-segment" aria-hidden="true">Craft food & drinks in a community space · • • • • • • • · </span>
+          <span class="st-marquee-segment">Coffee & food worth slowing down for · • • • • • • • ·  a living room to stay awhile · • • • • • • • · </span>
+          <span class="st-marquee-segment" aria-hidden="true">Coffee & food worth slowing down for · • • • • • • • ·  a living room to stay awhile · • • • • • • • · </span>
         </div>
       </div>
 
-      <section id="st-moment" class="st-moment" aria-label="Announcement">
+      <section id="visit" class="st-moment" aria-label="Announcement">
         <div class="st-moment-video" aria-hidden="true">
           <video class="st-moment-video-media" autoplay muted loop playsinline preload="metadata">
             <source src="./st-bg.mp4" type="video/mp4" />
           </video>
         </div>
         <div class="st-moment-inner">
-          <p class="st-moment-line reveal-up">There's a new</p>
-          <p class="st-moment-line reveal-up reveal-up--delay-1">neighborhood spot</p>
-          <p class="st-moment-line st-moment-line--accent reveal-up reveal-up--delay-2">coming soon.</p>
-        </div>
-      </section>
-
-      <section id="visit" class="st-band st-band--visit">
-        <div class="st-band-inner">
-          <div class="st-visit-grid">
+          <div class="st-moment-head">
+            <p class="st-moment-line reveal-up">A new spot is</p>
+            <p class="st-moment-line reveal-up reveal-up--delay-1">coming to town</p>
+            <p class="st-moment-line st-moment-line--accent reveal-up reveal-up--delay-2">visit us soon!</p>
+          </div>
+          <div class="st-visit-grid st-moment-visit">
             <div class="reveal-up">
               <h3 class="st-label">Where</h3>
-              <p class="st-visit-text">Yet To Be Announced<br />Berkeley, CA 94703</p>
-              <!-- <a
-                class="st-link-maps"
+              <p class="st-visit-text">
+                <a
                 href="https://www.google.com/maps/search/?api=1&amp;query=123+Coffee+Lane+Berkeley+CA+94703"
                 target="_blank"
                 rel="noopener noreferrer"
-                >Find on maps</a> -->
+                >3300 Adeline Street<br />Berkeley, CA 94703
+              </a>
+            </p>
+             
             </div>
             <div class="reveal-up reveal-up--delay-1">
-              <h2 class="st-section-title reveal-h2">Visit us</h2>
               <div class="st-visit-cont">
                 <h3 class="st-label">Hours</h3>
-                <p class="st-visit-text">Mon – Fri: 07:00 — 22:00<br />Sat – Sun: 08:00 — 23:00</p>
+                <p class="st-visit-text">Mon – Fri : 07:00 — 22:00<br />Sat – Sun : 08:00 — 23:00</p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="menus" class="st-shop" aria-labelledby="st-shop-heading">
+        <div class="st-shop-inner">
+          <!-- <h2 id="st-shop-heading" class="st-shop-title reveal-h2">What We're Bringing</h2> -->
+          <div class="st-shop-grid">
+            <article class="st-shop-card reveal-up">
+              <div class="st-shop-card-media reveal-img reveal-img--from-right">
+                <img src="./img-coffee.jpg" alt="" width="480" height="260" loading="lazy" />
+              </div>
+              <h3 class="st-shop-card-title">Single Origin Brews</h3>
+              <p class="st-shop-card-desc">Expertly pulled espresso and a curated library of loose-leaf teas. We source direct from the farms, single origin beans and tea leaves.</p>
+              <!-- <a class="st-shop-card-link" href="https://sidetablecoffee.square.site/" rel="noopener noreferrer">Shop drinks</a> -->
+            </article>
+            <article class="st-shop-card reveal-up reveal-up--delay-1">
+              <div class="st-shop-card-media reveal-img reveal-img--from-bottom">
+                <img src="./img-space.jpg" alt="" width="480" height="260" loading="lazy" />
+              </div>
+              <h3 class="st-shop-card-title">Come Hang Out</h3>
+              <p class="st-shop-card-desc">We’re the neighborhood’s go-to spot to actually sit down and stay a while. It’s a big, welcoming space designed for slow weekend brunches, mid-day meetings, or just escaping the house for a bit of atmosphere.</p>
+              <!-- <a class="st-shop-card-link" href="https://sidetablecoffee.square.site/" rel="noopener noreferrer">Shop coffee</a> -->
+            </article>
+            <article class="st-shop-card reveal-up reveal-up--delay-2">
+              <div class="st-shop-card-media reveal-img reveal-img--from-top">
+                <img src="./img-food.jpg"  alt="" width="480" height="260" loading="lazy" />
+              </div>
+              <h3 class="st-shop-card-title">Artisanal food</h3>
+              <p class="st-shop-card-desc">Locally sourced fresh cakes and pastries that change with the seasons along with hearty sandwiches and vibrant, salads from fresh ingredients. Stay local and fresh.</p>
+              <!-- <a class="st-shop-card-link" href="https://sidetablecoffee.square.site/" rel="noopener noreferrer">Shop pastries</a> -->
+            </article>
           </div>
         </div>
       </section>
@@ -231,52 +261,20 @@
       <section class="st-community" aria-label="Community">
         <div class="st-community-marquee" role="presentation" aria-hidden="true">
           <div class="st-community-marquee-track">
-            <span>we're building this for our neighborhood · we're building this for our neighborhood · </span>
-            <span aria-hidden="true">we're building this for our neighborhood · we're building this for our neighborhood · </span>
+            <span>we're building this for us · we're building this for us · we're building this for us · we're building this for us · </span>
+            <span aria-hidden="true">we're building this for us · we're building this for us · we're building this for us · we're building this for us · </span>
           </div>
         </div>
-        <div class="st-community-inner">
+        <!-- <div class="st-community-inner">
           <h2 class="st-community-title reveal-up">community</h2>
           <ul class="st-community-list">
             <li class="reveal-up reveal-up--delay-1">A living room, not a drive-through.</li>
             <li class="reveal-up reveal-up--delay-2">Room to stay awhile — and actually want to.</li>
             <li class="reveal-up reveal-up--delay-3">Coffee and food worth slowing down for.</li>
           </ul>
-        </div>
+        </div> -->
       </section>
-
-      <section id="menus" class="st-shop" aria-labelledby="st-shop-heading">
-        <div class="st-shop-inner">
-          <h2 id="st-shop-heading" class="st-shop-title reveal-h2">What We're Bringing</h2>
-          <div class="st-shop-grid">
-            <article class="st-shop-card reveal-up">
-              <div class="st-shop-card-media reveal-img reveal-img--from-right">
-                <img src="./img-coffee.jpg" alt="" width="480" height="360" loading="lazy" />
-              </div>
-              <h3 class="st-shop-card-title">Single Origin Brews</h3>
-              <p class="st-shop-card-desc">Expertly pulled espresso and a curated library of loose-leaf teas. We source direct from the farms, single origin beans and tea leaves.</p>
-              <!-- <a class="st-shop-card-link" href="https://sidetablecoffee.square.site/" rel="noopener noreferrer">Shop drinks</a> -->
-            </article>
-            <article class="st-shop-card reveal-up reveal-up--delay-1">
-              <div class="st-shop-card-media reveal-img reveal-img--from-bottom">
-                <img src="./img-space.jpg" alt="" width="480" height="360" loading="lazy" />
-              </div>
-              <h3 class="st-shop-card-title">Come Hang Out</h3>
-              <p class="st-shop-card-desc">We’re the neighborhood’s go-to spot to actually sit down and stay a while. It’s a big, welcoming space designed for slow weekend brunches, mid-day meetings, or just escaping the house for a bit of atmosphere.</p>
-              <!-- <a class="st-shop-card-link" href="https://sidetablecoffee.square.site/" rel="noopener noreferrer">Shop coffee</a> -->
-            </article>
-            <article class="st-shop-card reveal-up reveal-up--delay-2">
-              <div class="st-shop-card-media reveal-img reveal-img--from-top">
-                <img src="./img-food.jpg"  alt="" width="480" height="360" loading="lazy" />
-              </div>
-              <h3 class="st-shop-card-title">Artisanal food</h3>
-              <p class="st-shop-card-desc">Locally sourced fresh cakes and pastries that change with the seasons along with hearty sandwiches and vibrant, salads from fresh ingredients. Stay local and fresh.</p>
-              <!-- <a class="st-shop-card-link" href="https://sidetablecoffee.square.site/" rel="noopener noreferrer">Shop pastries</a> -->
-            </article>
-          </div>
-        </div>
-      </section>
-
+      
       <section class="st-contact" aria-labelledby="st-contact-heading">
         <div class="st-contact-inner">
           <div class="st-contact-intro reveal-up">

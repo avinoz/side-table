@@ -242,7 +242,7 @@ body::before {
     font-family: "Knewave", "Inter", Arial, sans-serif;
   }
   a.is-current {
-    background: rgba(20, 20, 20, 0.95);
+    background: var(--accent-green);
   }
 }
 
@@ -639,7 +639,7 @@ html.survey-submit-loading body {
     --site-header-h: 64px;
   }
 
-  #visit {
+  #visit .st-moment-visit {
     display: none;
   }
 
@@ -680,7 +680,7 @@ html.survey-submit-loading body {
     width: 120%;
     margin-left: -10%;
     padding: 15px 20px;
-    color: #dcdcdc;
+    color: var(--accent-slate);
   }
 
   .site-footer {
@@ -749,12 +749,13 @@ html.survey-submit-loading body {
   }
 
   .site-nav-drawer-panel {
+    overflow: hidden;
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     width: 100vw;
-    background: rgba(20, 16, 13, 0.5);
+    background: rgba(142, 104, 75, 0.5);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     box-shadow: -12px 0 40px rgba(0, 0, 0, 0.18);
@@ -763,7 +764,6 @@ html.survey-submit-loading body {
     transform: translateX(100%);
     transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     overscroll-behavior: none !important;
-    /* touch-action: pan-y; */
   }
 
   .site-nav-drawer.is-open .site-nav-drawer-panel {
@@ -773,8 +773,6 @@ html.survey-submit-loading body {
   .site-nav--drawer {
     flex: 1;
     overscroll-behavior: none !important;
-    /* overflow-y: auto; */
-    /* -webkit-overflow-scrolling: touch; */
   }
 }
 
@@ -804,7 +802,7 @@ html.survey-submit-loading body {
 .page.page--home {
   max-width: none;
   margin: 0;
-  padding: 0 0 64px;
+  padding: 0;
   width: 100%;
 }
 
@@ -939,7 +937,7 @@ html.survey-submit-loading body {
   will-change: transform, opacity;
 }
 
-.st-moment-line {
+.st-moment-line:not(.st-moment-line--accent) {
   overflow: hidden;
 }
 
@@ -1127,7 +1125,26 @@ html.js-gsap-active .page--home .reveal-img img {
   font-size: clamp(3rem, 10vw, 6.5rem);
   text-transform: none;
   letter-spacing: 0.04em;
-  line-height: 1.1;
+  line-height: 1.25;
+  overflow: visible;
+  padding-bottom: 0.1em;
+}
+
+.st-moment-head {
+  overflow: visible;
+  text-align: right;
+}
+
+.st-moment-visit {
+  /* margin-top: clamp(48px, 8vw, 88px); */
+}
+
+.st-moment .st-visit-grid {
+  align-items: stretch;
+}
+
+.st-moment .st-section-title {
+  color: #1a1816;
 }
 
 .st-community {
@@ -1294,49 +1311,12 @@ html.js-gsap-active .page--home .reveal-img img {
   }
 }
 
-.st-band--visit {
-  background: #f4efe6;
-  color: #1a1816;
-  padding: clamp(64px, 10vw, 100px) clamp(20px, 5vw, 48px);
+.st-visit-grid {
   display: flex;
-  position: relative;
-}
-
-.st-band--visit::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: min(42%, 480px);
-  height: 100%;
-  background: #1a1816;
-  z-index: 0;
-}
-
-.st-band--visit .st-band-inner {
-  position: relative;
-  z-index: 1;
-}
-
-.st-visit-grid > div:first-child {
-  color: #f4efe6;
-  padding: clamp(12px, 3vw, 28px) clamp(16px, 3vw, 32px);
-}
-
-.st-visit-grid > div:first-child .st-label {
-  color: rgba(244, 239, 230, 0.72);
-}
-
-.st-visit-grid > div:first-child .st-visit-text {
-  color: rgba(244, 239, 230, 0.92);
-}
-
-.st-band-inner {
-  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 0;
   max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
 }
 
 .st-visit-cont {
@@ -1346,20 +1326,12 @@ html.js-gsap-active .page--home .reveal-img img {
 .st-section-title {
   margin: 0 0 22px;
   font-family: "Bebas Neue", "Impact", sans-serif;
-  font-size: 5.5rem;
-  line-height: .9;
+  font-size: clamp(3.2rem, 8vw, 5.5rem);
+  line-height: 0.9;
   font-weight: 400;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   text-align: right;
-}
-
-.st-visit-grid {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: 28px 40px;
-  max-width: 1200px;
 }
 
 .st-label {
@@ -1368,31 +1340,23 @@ html.js-gsap-active .page--home .reveal-img img {
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(26, 24, 22, 0.75);
+  color: var(--cream);
 }
 
-.st-visit-text {
+.st-visit-text a {
   margin: 0;
-  font-size: 1rem;
-  line-height: 1.55;
-}
-
-.st-link-maps {
-  display: inline-block;
   margin-top: 12px;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #1a1816;
-  text-underline-offset: 4px;
+  font-size: 1rem;
+  color: var(--cream);
+  text-decoration: none;
+  &:hover {
+    color: var(--accent-pink);
+  }
 }
 
 .st-story {
   position: relative;
   padding: clamp(72px, 10vw, 100px) clamp(20px, 5vw, 48px) clamp(48px, 8vw, 72px);
-  border-top: 3px solid var(--ink);
-  border-bottom: 3px solid var(--ink);
   background: url("./streetview-dusk.jpg") center center / cover no-repeat;
   overflow: hidden;
 }
@@ -1457,8 +1421,9 @@ html.js-gsap-active .page--home .reveal-img img {
       flex-direction: column;
       .st-story-heading {
         margin-left: 0;
+        padding-left: 30px;
         margin-bottom: 20px;
-        text-align: center;
+        text-align: left;
       }
       p {
         padding: 0 30px;
@@ -1481,26 +1446,36 @@ html.js-gsap-active .page--home .reveal-img img {
 }
 
 .st-shop {
+  border-top: 15px solid var(--accent-slate);
+  border-bottom: 15px solid var(--accent-slate);
+  --shop-pattern-x: 0px;
+  position: relative;
   padding: clamp(48px, 8vw, 88px) clamp(20px, 5vw, 48px);
-  background: var(--cream);
-  color: var(--ink);
-  border-top: 3px solid var(--ink);
+  background-color: #1e3434;
+  background-image: url("./shop-pattern.png");
+  background-repeat: repeat;
+  background-size: 248px 280px;
+  background-position: var(--shop-pattern-x) 0;
+  color: var(--brown-light);
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.5);
 }
 
 .st-shop-inner {
+  position: relative;
+  z-index: 1;
   max-width: 1120px;
   margin: 0 auto;
 }
 
 .st-shop-title {
-  margin: 0 0 36px;
-  font-family: "Bebas Neue", "Impact", sans-serif;
-  font-size: clamp(2.4rem, 5vw, 3.4rem);
-  font-weight: 400;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
   text-align: center;
-  color: #1a1816;
+  margin: 0 0 clamp(28px, 5vw, 48px);
+  font-family: "Bebas Neue", "Impact", sans-serif;
+  font-size: clamp(4rem, 14vw, 9rem);
+  line-height: 0.9;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--brown-light);
 }
 
 .st-shop-grid {
@@ -1515,28 +1490,30 @@ html.js-gsap-active .page--home .reveal-img img {
   border-radius: 0;
   padding: 0 0 22px;
   background: var(--cream-deep);
-  border: 3px solid var(--ink);
-  box-shadow: 5px 5px 0 var(--ink);
+  border: 8px solid var(--accent-green);
+  box-shadow: 10px 10px 0 var(--accent-green);
   overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .st-shop-card:hover {
   transform: translate(2px, 2px);
-  box-shadow: 3px 3px 0 var(--ink);
+  box-shadow: 10px 10px 0 var(--accent-pink);
 }
 
 .st-shop-card-media {
   overflow: hidden;
   aspect-ratio: 1;
+  max-height: 200px;
 }
 
 .st-shop-card-media img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
   display: block;
+  object-fit: cover;
   transition: transform 0.6s ease;
+  object-position: 0% 70%;
 }
 
 .st-shop-card:hover .st-shop-card-media img {
@@ -1578,8 +1555,11 @@ html.js-gsap-active .page--home .reveal-img img {
 
 .st-contact {
   padding: clamp(48px, 8vw, 88px) clamp(20px, 5vw, 48px);
-  background: var(--cream-deep);
-  border-top: 3px solid var(--ink);
+  background: var(--ink);
+}
+
+.st-contact-intro {
+  text-align: center;
 }
 
 .st-contact-inner {
@@ -1593,7 +1573,7 @@ html.js-gsap-active .page--home .reveal-img img {
   font-size: clamp(2.2rem, 4.5vw, 3rem);
   font-weight: 400;
   letter-spacing: 0.04em;
-  color: var(--ink);
+  color: var(--cream);
 }
 
 .st-contact-email {
@@ -1619,16 +1599,16 @@ html.js-gsap-active .page--home .reveal-img img {
 }
 
 .st-contact-forms {
-  display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.85fr);
-  gap: 24px;
-  align-items: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .st-card {
-  background: var(--cream);
-  border: 3px solid var(--ink);
-  box-shadow: 5px 5px 0 var(--ink);
+  background: var(--accent-green);
+  border: 10px solid var(--accent-slate);
+  box-shadow: 15px 15px 0 var(--accent-slate);
   padding: 24px 22px 28px;
 }
 
@@ -1863,23 +1843,21 @@ html.js-gsap-active .page--home .reveal-img img {
     margin: 0 auto;
   }
 
-  .st-band--visit::before {
-    width: 100%;
-    height: auto;
-    bottom: 0;
-    min-height: 48%;
-  }
-
-  .st-visit-grid {
+  .st-moment .st-visit-grid {
     flex-direction: column;
   }
 
-  .st-visit-grid > div:first-child {
+  .st-moment .st-visit-grid > div:first-child {
     padding-bottom: clamp(24px, 5vw, 40px);
   }
 
-  .st-visit-grid > div:last-child {
+  .st-moment .st-visit-grid > div:last-child {
     padding-top: clamp(8px, 2vw, 16px);
+  }
+
+  .st-moment .st-visit-cont,
+  .st-moment .st-section-title {
+    text-align: left;
   }
 
   .st-shop-grid {
@@ -1892,11 +1870,6 @@ html.js-gsap-active .page--home .reveal-img img {
 
   .st-form-row {
     grid-template-columns: 1fr;
-  }
-
-  .st-visit-grid {
-    grid-template-columns: 1fr;
-    gap: 0;
   }
 }
 
@@ -2287,7 +2260,8 @@ h1.st-display {
 }
 
 /* Drawer clone: plain Store li only; rich desktop Store is hidden here */
-.site-nav--drawer .site-nav-li--order-desktop {
+.site-nav--drawer .site-nav-li--order-desktop,
+.site-nav--drawer .site-nav-li--desktop-only {
   display: none !important;
 }
 
@@ -2650,7 +2624,7 @@ h2.card-header {
 }
 
 #primaryNavDrawerList a.is-current {
-  color: var(--brown);
+  color: var(--accent-slate);
 }
 
 .page--inner .card.survey .form {
