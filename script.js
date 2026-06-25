@@ -62,7 +62,8 @@ function sheetsEndpointConfigured() {
   );
 }
 
-function setSurveySubmitLoading(isLoading) {
+function setSurveySubmitLoading(isLoading, message) {
+  const loadingMessage = message || "Sending your responses…";
   let el = document.getElementById("survey-submit-overlay");
   if (isLoading) {
     if (!el) {
@@ -76,10 +77,13 @@ function setSurveySubmitLoading(isLoading) {
         <div class="survey-submit-overlay-inner st-modal-card">
           <img src="./sidetable.png" alt="" class="st-modal-logo" width="180" height="64" aria-hidden="true" />
           <div class="survey-submit-spinner" aria-hidden="true"></div>
-          <p class="survey-submit-overlay-text">Sending your responses…</p>
+          <p class="survey-submit-overlay-text">${loadingMessage}</p>
         </div>
       `;
       document.body.appendChild(el);
+    } else {
+      const textEl = el.querySelector(".survey-submit-overlay-text");
+      if (textEl) textEl.textContent = loadingMessage;
     }
     el.classList.add("is-visible");
     document.documentElement.classList.add("survey-submit-loading");
@@ -102,38 +106,46 @@ if (emailForm) {
       return;
     }
 
-    const submittedAt = new Date().toISOString();
-    const payload = {
-      submissionType: "email",
-      email,
-      submittedAt,
-    };
+    const submitBtn = emailForm.querySelector('button[type="submit"]');
+    if (submitBtn) submitBtn.disabled = true;
+    setSurveySubmitLoading(true, "Saving your email…");
 
-    if (sheetsEndpointConfigured()) {
-      try {
-        // GAS web apps redirect POST → follow-up GET can fail response.ok checks; no-cors fire-and-forget is reliable.
-        await fetch(GOOGLE_SHEETS_WEB_APP_URL, {
-          method: "POST",
-          mode: "no-cors",
-          headers: {
-            "Content-Type": "text/plain;charset=utf-8",
-          },
-          body: JSON.stringify(payload),
-        });
-      } catch (error) {
-        showSideTableMessage(
-          "We could not save your email right now. Please try again."
-        );
-        return;
+    try {
+      const submittedAt = new Date().toISOString();
+      const payload = {
+        submissionType: "email",
+        email,
+        submittedAt,
+      };
+
+      if (sheetsEndpointConfigured()) {
+        try {
+          await fetch(GOOGLE_SHEETS_WEB_APP_URL, {
+            method: "POST",
+            mode: "no-cors",
+            headers: {
+              "Content-Type": "text/plain;charset=utf-8",
+            },
+            body: JSON.stringify(payload),
+          });
+        } catch (error) {
+          showSideTableMessage(
+            "We could not save your email right now. Please try again."
+          );
+          return;
+        }
+      } else {
+        const emailLeads = JSON.parse(localStorage.getItem("sideTableEmailLeads") || "[]");
+        emailLeads.push({ email, submittedAt });
+        localStorage.setItem("sideTableEmailLeads", JSON.stringify(emailLeads));
       }
-    } else {
-      const emailLeads = JSON.parse(localStorage.getItem("sideTableEmailLeads") || "[]");
-      emailLeads.push({ email, submittedAt });
-      localStorage.setItem("sideTableEmailLeads", JSON.stringify(emailLeads));
-    }
 
-    emailForm.reset();
-    showSideTableMessage("We will keep you updated with our progress!");
+      emailForm.reset();
+      showSideTableMessage("We will keep you updated with our progress!");
+    } finally {
+      setSurveySubmitLoading(false);
+      if (submitBtn) submitBtn.disabled = false;
+    }
   });
 }
 
