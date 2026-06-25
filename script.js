@@ -745,6 +745,27 @@ function initCreativeScrollAnimations() {
   ScrollTrigger.refresh();
 }
 
+function initFixedPatternScroll(bg, cssVar) {
+  if (!bg) return;
+
+  const updatePattern = () => {
+    bg.style.setProperty(cssVar, `${getPageScrollY()}px`);
+  };
+
+  document.body.addEventListener("scroll", updatePattern, { passive: true });
+  window.addEventListener("resize", updatePattern);
+  window.addEventListener("load", updatePattern);
+  updatePattern();
+}
+
+(function initInnerPageBgEffects() {
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduceMotion) return;
+
+  initFixedPatternScroll(document.querySelector(".page--survey-bg"), "--hero-pattern-x");
+  initFixedPatternScroll(document.querySelector(".page--jobs-bg"), "--shop-pattern-x");
+})();
+
 const contactForm = document.getElementById("contactForm");
 if (contactForm) {
   contactForm.addEventListener("submit", (event) => {

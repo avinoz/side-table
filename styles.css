@@ -274,6 +274,8 @@ html.site-nav-drawer-open body {
 .site-footer {
   flex-shrink: 0;
   width: 100%;
+  position: relative;
+  z-index: 2;
 }
 
 .site-footer-inner {
@@ -686,8 +688,8 @@ html.survey-submit-loading body {
     --site-header-h: 64px;
   }
 
-  #visit .st-moment-visit {
-    display: none;
+  .st-moment-visit {
+    margin-top: clamp(32px, 8vw, 48px);
   }
 
   .site-header {
@@ -1530,7 +1532,7 @@ html.js-gsap-active .page--home .reveal-img img {
 .st-shop-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(18px, 3vw, 28px);
+  gap: clamp(38px, 4vw, 38px);
 }
 
 .st-shop-card {
@@ -1552,8 +1554,9 @@ html.js-gsap-active .page--home .reveal-img img {
 
 .st-shop-card-media {
   overflow: hidden;
-  aspect-ratio: 1;
-  max-height: 200px;
+  width: 100%;
+  height: clamp(180px, 32vw, 260px);
+  flex-shrink: 0;
 }
 
 .st-shop-card-media img {
@@ -1858,6 +1861,8 @@ html.js-gsap-active .page--home .reveal-img img {
 
 .st-ticker {
   overflow: hidden;
+  position: relative;
+  z-index: 2;
   background: var(--accent-slate);
   color: rgba(245, 240, 232, 0.72);
   border-top: none;
@@ -1970,8 +1975,75 @@ html.js-gsap-active .page--home .reveal-img img {
 .page.page--inner {
   max-width: 720px;
   margin: 0 auto;
-  padding: calc(20px + var(--site-header-h)) 22px 56px;
+  padding: calc(20px + var(--site-header-h)) 22px 100px;
   width: 100%;
+}
+
+.page.page--survey,
+.page.page--jobs {
+  position: relative;
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  flex: 1 0 auto;
+  background: transparent;
+  overflow: visible;
+}
+
+.page--survey-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-color: #f7e4a0;
+  --hero-pattern-x: 0px;
+}
+
+.page--survey-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("./hero-pattern.png");
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+  background-position: var(--hero-pattern-x, 0px) top;
+  opacity: 0.1;
+  will-change: background-position;
+}
+
+.page--jobs-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-color: #1e3434;
+  --shop-pattern-x: 0px;
+  background-image: url("./shop-pattern.png");
+  background-repeat: repeat;
+  background-size: 248px 280px;
+  background-position: var(--shop-pattern-x, 0px) 0;
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.5);
+  will-change: background-position;
+}
+
+.page--survey-inner,
+.page--jobs-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.page--jobs .st-kicker {
+  color: var(--brown-light);
+}
+
+.page--jobs .st-display,
+.page--jobs h1.st-display {
+  color: var(--cream);
+}
+
+.page--jobs .st-lede {
+  color: rgba(245, 240, 232, 0.82);
 }
 
 .st-sub-hero {

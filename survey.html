@@ -84,7 +84,9 @@
       </div>
     </div>
 
-    <main class="page page--inner" id="main-content">
+    <main class="page page--survey" id="main-content">
+      <div class="page--survey-bg" aria-hidden="true"></div>
+      <div class="page page--inner page--survey-inner">
       <section class="st-sub-hero">
         <p class="st-kicker">Survey</p>
         <h1 class="st-display st-display--survey">What you’d want on the menu</h1>
@@ -208,6 +210,7 @@
           </div>
         </form>
       </section>
+      </div>
     </main>
 
     <div class="st-ticker" role="presentation" aria-hidden="true">
@@ -222,7 +225,7 @@
     </div>
 
     <footer class="site-footer site-footer--theme">
-      <div class="site-footer-inner site-footer-inner--brand-only">
+      <div class="site-footer-inner">
         <div class="site-footer-brand">
           <a
             class="site-footer-insta"
@@ -233,12 +236,24 @@
             <img src="./insta-white.png" alt="" width="28" height="28" />
             <span>Instagram</span>
           </a>
-          <p class="site-footer-tagline">settle in, with us</p>
+          <div class="site-footer-tagline-container">
+            <div class="site-footer-tagline">settle in,</div>
+            <div class="site-footer-tagline">with us</div>
+          </div>
           <p class="site-footer-meta">
-            <span>3300 Adeline Street · Berkeley, CA 94703</span>
-            <span class="site-footer-meta-sep" aria-hidden="true">·</span>
-            <span>&copy; 2026 Side Table</span>
+            <span>3300 Adeline Street · Berkeley, CA 94703 · &copy; 2026 Side Table</span>
           </p>
+        </div>
+        <div class="site-footer-newsletter st-card st-card--news">
+          <h2 class="site-footer-newsletter-title">Be in the Know</h2>
+          <p class="site-footer-newsletter-note">Updates on our soft opening, menu drops, and other neighborhood events.</p>
+          <form id="emailForm" class="st-form st-form--compact">
+            <label class="st-field">
+              <span class="visually-hidden">Email</span>
+              <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required />
+            </label>
+            <button type="submit" class="st-btn st-btn--dark">Update me</button>
+          </form>
         </div>
       </div>
     </footer>
