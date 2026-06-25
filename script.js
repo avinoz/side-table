@@ -717,19 +717,29 @@ function initCreativeScrollAnimations() {
     });
   });
 
-  gsap.from(".st-contact-title", {
-    scrollTrigger: { trigger: ".st-contact", start: "top 80%" },
-    y: 40,
+  gsap.from(".site-footer-insta", {
+    scrollTrigger: { trigger: ".site-footer", start: "top 88%" },
+    y: 24,
     opacity: 0,
-    duration: 0.85,
+    duration: 0.75,
+    ease: "power3.out",
   });
 
-  gsap.from(".st-card--news", {
-    scrollTrigger: { trigger: ".st-card--news", start: "top 88%" },
+  gsap.from(".site-footer-tagline", {
+    scrollTrigger: { trigger: ".site-footer-tagline", start: "top 90%" },
+    y: 40,
+    opacity: 0,
+    duration: 0.9,
+    ease: "power3.out",
+  });
+
+  gsap.from(".site-footer-newsletter", {
+    scrollTrigger: { trigger: ".site-footer-newsletter", start: "top 88%" },
     y: 50,
     opacity: 0,
     duration: 0.85,
     delay: 0.1,
+    ease: "power3.out",
   });
 
   ScrollTrigger.refresh();

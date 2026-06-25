@@ -12,7 +12,7 @@
   --accent-slate: #2e3e3e;
   --accent-terracotta: #9a604a;
   --accent-blush: #f8ebe2;
-  --accent-peach: #ab785b;
+  --accent-peach: #e29883;
   --accent-pink: #dd6580;
   --accent-pink-dark: #c95572;
   --accent-green: #3d7747;
@@ -123,7 +123,7 @@ body::before {
   letter-spacing: 0.08em;
   padding: 21px 2px;
   border-bottom: 9px solid transparent;
-  color: #dcdcdc;
+  color: var(--cream);
   transition: all 0.1s;
 }
 
@@ -136,6 +136,7 @@ body::before {
 }
 
 .site-nav a.is-current {
+  color: var(--accent-slate);
   border-bottom-color: var(--accent-slate);
 }
 
@@ -273,69 +274,115 @@ html.site-nav-drawer-open body {
 .site-footer {
   flex-shrink: 0;
   width: 100%;
-  background: rgba(139, 77, 14, 0.1);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  .site-footer-inner {
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 18px 0;
-    display: flex;
-    flex-direction: row;
-    gap: 21px;
-  }
-  .site-footer-social-container,
-  .site-footer-contact {
-    display: grid;
-    gap: 6px;
-    font-size: 0.9rem;
-    .privacy-link {
-      font-size: 0.7rem;
-    } 
-    a {
-      font-size: 0.8rem;
-      color: inherit;
-      text-decoration: none;
-      text-underline-offset: 3px;
-      transition: color 0.1s ease;
-      &:hover {
-        color: #965121;
-      }
-    }
-    p {
-      margin: 0;
-    }
-  }
-  .site-footer-social {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 16px;
-  }
-  .footer-item {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    align-items: center;
-    .footer-label {
-      width: 60px;
-      text-align: right;
-      font-style: italic;
-      font-size: 0.7rem;
-    }
-  }
-  .social-icon img {
-    width: 30px;
-    height: 30px;
-    opacity: 0.7;
-  }
-  .site-footer-social-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 10px;
-  }
+}
+
+.site-footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(56px, 9vw, 96px) clamp(20px, 5vw, 48px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+  gap: clamp(32px, 5vw, 64px);
+  align-items: stretch;
+}
+
+.site-footer-inner--brand-only {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.site-footer-brand {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 10px 20px;
+}
+
+.site-footer-insta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--cream);
+  text-decoration: none;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: opacity 0.2s ease;
+}
+
+.site-footer-insta:hover,
+.site-footer-insta:focus-visible {
+  opacity: 0.72;
+  outline: none;
+}
+
+.site-footer-insta img {
+  width: 28px;
+  height: 28px;
+  opacity: 0.92;
+}
+
+.site-footer-tagline {
+  margin: 0;
+  font-family: "Grape Nuts", cursive;
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: var(--cream);
+  text-align: center;
+}
+
+.site-footer-tagline-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.site-footer-meta {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.45em 0.85em;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(245, 240, 232, 0.52);
+}
+
+.site-footer-meta-sep {
+  opacity: 0.45;
+}
+
+.site-footer-newsletter {
+  align-self: start;
+  width: 100%;
+}
+
+.site-footer-newsletter-title {
+  margin: 0 0 12px;
+  font-family: "Bebas Neue", "Impact", sans-serif;
+  font-size: clamp(2rem, 4.5vw, 2.75rem);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 0.95;
+  color: var(--cream);
+}
+
+.site-footer-newsletter-note {
+  margin: 0 0 18px;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: rgba(245, 240, 232, 0.82);
+}
+
+.site-footer-newsletter .st-btn {
+  width: 100%;
+  justify-content: center;
 }
 
 .bg-video {
@@ -657,16 +704,23 @@ html.survey-submit-loading body {
     gap: 10px;
   }
 
-  .footer-item {
-    .footer-label {
-      text-align: left !important;
+  .site-footer {
+    background: var(--accent-slate);
+    border-top: none;
+  }
+
+  .site-footer-tagline {
+    font-size: clamp(5rem, 10vw, 7.5rem);
+    line-height: 0.8;
+    &:last-child {
+      margin-bottom: 20px;
     }
   }
 
-  .site-footer-social-container {
-    width: 100%;
-    justify-content: space-between !important;
+  .site-footer .site-footer-inner {
+    padding: clamp(48px, 10vw, 72px) 24px;
   }
+
   .page {
     overflow: hidden;
   }
@@ -681,19 +735,6 @@ html.survey-submit-loading body {
     margin-left: -10%;
     padding: 15px 20px;
     color: var(--accent-slate);
-  }
-
-  .site-footer {
-    background: none;
-    backdrop-filter: blur(0px);
-    -webkit-backdrop-filter: blur(0px);
-    border-top: none;
-    .site-footer-inner {
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: flex-start;
-      padding: 18px 30px;
-    }
   }
 
   .site-nav-toggle {
@@ -1364,7 +1405,7 @@ html.js-gsap-active .page--home .reveal-img img {
 
 .st-story {
   position: relative;
-  padding: clamp(72px, 10vw, 100px) clamp(20px, 5vw, 48px) clamp(48px, 8vw, 72px);
+  padding: clamp(100px, 14vw, 148px) clamp(20px, 5vw, 48px) clamp(80px, 12vw, 128px);
   background: url("./streetview-dusk.jpg") center center / cover no-repeat;
   overflow: hidden;
 }
@@ -1561,9 +1602,58 @@ html.js-gsap-active .page--home .reveal-img img {
   outline: none;
 }
 
+.st-find-us {
+  padding: clamp(56px, 9vw, 88px) clamp(20px, 5vw, 48px) clamp(32px, 5vw, 48px);
+  background: var(--ink);
+  color: var(--cream);
+  text-align: center;
+}
+
+.st-find-us-inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.st-find-us-title {
+  margin: 0 0 clamp(22px, 4vw, 36px);
+  font-family: "Bebas Neue", "Impact", sans-serif;
+  font-size: clamp(3.2rem, 11vw, 6rem);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 0.92;
+  color: var(--cream);
+}
+
+.st-find-us-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  color: var(--cream);
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: opacity 0.2s ease;
+}
+
+.st-find-us-link:hover,
+.st-find-us-link:focus-visible {
+  opacity: 0.72;
+  outline: none;
+}
+
+.st-find-us-link img {
+  width: 36px;
+  height: 36px;
+  opacity: 0.92;
+}
+
 .st-contact {
   padding: clamp(48px, 8vw, 88px) clamp(20px, 5vw, 48px);
-  background: var(--ink);
+  background: var(--accent-slate);
 }
 
 .st-contact-intro {
@@ -1615,8 +1705,8 @@ html.js-gsap-active .page--home .reveal-img img {
 
 .st-card {
   background: var(--accent-green);
-  border: 10px solid var(--accent-slate);
-  box-shadow: 15px 15px 0 var(--accent-slate);
+  border: 10px solid var(--ink);
+  box-shadow: 15px 15px 0 var(--ink);
   padding: 24px 22px 28px;
 }
 
@@ -1768,10 +1858,10 @@ html.js-gsap-active .page--home .reveal-img img {
 
 .st-ticker {
   overflow: hidden;
-  background: var(--brown);
-  color: var(--cream);
-  border-top: 3px solid var(--ink);
-  border-bottom: 3px solid var(--ink);
+  background: var(--accent-slate);
+  color: rgba(245, 240, 232, 0.72);
+  border-top: none;
+  border-bottom: none;
 }
 
 .st-ticker-track {
@@ -1801,26 +1891,9 @@ html.js-gsap-active .page--home .reveal-img img {
 }
 
 .site-footer.site-footer--theme {
-  background: var(--cream);
-  border-top: 3px solid var(--ink);
-  color: rgba(44, 39, 36, 0.78);
-}
-
-.site-footer.site-footer--theme a {
-  color: var(--brown);
-}
-
-.site-footer.site-footer--theme .footer-label {
-  color: rgba(44, 39, 36, 0.5);
-}
-
-.site-footer.site-footer--theme .privacy-link {
-  color: rgba(44, 39, 36, 0.45);
-}
-
-.site-footer.site-footer--theme .social-icon img {
-  opacity: 0.75;
-  filter: brightness(0);
+  background: var(--accent-slate);
+  border-top: none;
+  color: var(--cream);
 }
 
 @media (max-width: 640px) {
@@ -1870,6 +1943,18 @@ html.js-gsap-active .page--home .reveal-img img {
 
   .st-shop-grid {
     grid-template-columns: 1fr;
+  }
+
+  .site-footer-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .site-footer-brand {
+    min-height: auto;
+  }
+
+  .site-footer-newsletter {
+    max-width: 420px;
   }
 
   .st-contact-forms {
