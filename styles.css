@@ -357,6 +357,19 @@ html.site-nav-drawer-open body {
   color: rgba(245, 240, 232, 0.52);
 }
 
+.site-footer-meta a {
+  color: inherit;
+  text-decoration: none !important;
+  transition: color 0.2s ease;
+}
+
+.site-footer-meta a:hover,
+.site-footer-meta a:focus-visible,
+.site-footer-meta a:visited {
+  color: var(--cream) !important;
+  outline: none;
+}
+
 .site-footer-meta-sep {
   opacity: 0.45;
 }
@@ -692,6 +705,22 @@ html.survey-submit-loading body {
 
   .st-moment-visit {
     margin-top: clamp(32px, 8vw, 48px);
+  }
+
+  .st-moment-inner,
+  .st-moment-head,
+  .st-moment-line,
+  .st-moment .st-visit-grid,
+  .st-moment .st-visit-grid > div,
+  .st-moment .st-visit-cont,
+  .st-moment .st-section-title,
+  .st-moment .st-visit-text,
+  .st-moment .st-label {
+    text-align: center;
+  }
+
+  .st-moment .st-visit-grid > div {
+    align-items: center;
   }
 
   .site-header {
