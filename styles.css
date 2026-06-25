@@ -283,7 +283,7 @@ html.site-nav-drawer-open body {
 .site-footer-inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: clamp(56px, 9vw, 96px) clamp(20px, 5vw, 48px);
+  padding: clamp(56px, 9vw, 96px) clamp(20px, 5vw, 48px) clamp(360px, 48vw, 600px);
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
   gap: clamp(32px, 5vw, 64px);
@@ -565,6 +565,43 @@ fieldset label {
   }
 }
 
+.q-hint {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.q-other {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  width: 100%;
+  white-space: normal !important;
+}
+
+.q-other-text {
+  flex: 0 0 auto;
+}
+
+.q-other-input {
+  flex: 1 1 180px;
+  min-width: 0;
+  max-width: 100%;
+  margin: 0;
+  border: solid 1px rgb(212, 110, 14);
+  background: #fffdf8;
+  padding: 6px 10px;
+  font: inherit;
+  line-height: 1.4;
+}
+
+.q-other-input:disabled {
+  opacity: 0.5;
+}
+
 .row {
   display: flex;
   gap: 10px;
@@ -600,40 +637,54 @@ button:hover {
   align-items: center;
   justify-content: center;
   padding: 20px;
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(30, 52, 52, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
 .side-table-dialog-overlay.is-open {
   display: flex;
 }
 
-.side-table-dialog {
-  width: min(100%, 380px);
-  padding: 22px 22px 18px;
-  background: #fdfbf5;
-  border: 1px solid #1b1b1b;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+.st-modal-card {
+  width: min(100%, 420px);
+  padding: clamp(24px, 5vw, 32px);
+  background: var(--cream-deep);
+  border: 8px solid var(--accent-green);
+  box-shadow: 10px 10px 0 var(--accent-pink-dark);
+  text-align: center;
+  color: var(--ink);
 }
 
-.side-table-dialog-title {
-  margin: 0 0 12px;
-  font-size: 1.15rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #111111;
+.side-table-dialog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.side-table-dialog-logo,
+.st-modal-logo {
+  display: block;
+  width: min(100%, 220px);
+  height: auto;
+  margin: 0 auto clamp(16px, 3vw, 22px);
 }
 
 .side-table-dialog-message {
-  margin: 0 0 18px;
-  font-size: 0.95rem;
-  line-height: 1.45;
-  color: #2f2f2f;
+  margin: 0 0 clamp(18px, 3vw, 24px);
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--brown);
+  text-align: center;
+  max-width: 32ch;
 }
 
 .side-table-dialog-close {
   width: 100%;
+  max-width: 280px;
   margin-top: 4px;
+  cursor: pointer;
+  font-family: inherit;
 }
 
 /* Survey submit: full-screen loading (Google Sheets fetch can take several seconds) */
@@ -645,9 +696,9 @@ button:hover {
   align-items: center;
   justify-content: center;
   padding: 24px;
-  background: rgba(10, 9, 8, 0.5);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
+  background: rgba(30, 52, 52, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -666,21 +717,16 @@ html.survey-submit-loading body {
 }
 
 .survey-submit-overlay-inner {
-  max-width: 320px;
-  padding: 28px 32px;
-  text-align: center;
-  background: #fdfbf5;
-  border: 1px solid rgba(26, 24, 22, 0.14);
-  border-radius: 8px;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+  max-width: 360px;
 }
 
 .survey-submit-spinner {
   width: 44px;
   height: 44px;
   margin: 0 auto 16px;
-  border: 3px solid rgba(26, 24, 22, 0.12);
-  border-top-color: #c97a42;
+  border: 3px solid rgba(44, 39, 36, 0.12);
+  border-top-color: var(--accent-green);
+  border-right-color: var(--accent-pink);
   border-radius: 50%;
   animation: survey-submit-spin 0.75s linear infinite;
 }
@@ -693,9 +739,10 @@ html.survey-submit-loading body {
 
 .survey-submit-overlay-text {
   margin: 0;
-  font-size: 0.95rem;
-  line-height: 1.45;
-  color: #1a1816;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--brown);
+  text-align: center;
 }
 
 @media (max-width: 640px) {
@@ -751,7 +798,7 @@ html.survey-submit-loading body {
   }
 
   .site-footer .site-footer-inner {
-    padding: clamp(48px, 10vw, 72px) 24px;
+    padding: clamp(48px, 10vw, 72px) 24px clamp(560px, 84vh, 1040px);
   }
 
   .page {
@@ -1092,7 +1139,7 @@ html.js-gsap-active .page--home .reveal-img img {
   letter-spacing: 0.02em;
   font-weight: 400;
   text-transform: uppercase;
-  color: var(--ink);
+  color: var(--accent-slate);
   rotate: 0deg;
 }
 
@@ -2869,8 +2916,34 @@ h2.card-header {
   color: var(--accent-slate);
 }
 
+.page--inner .card.survey.st-shop-card {
+  background: var(--cream-deep);
+  border: 8px solid var(--accent-green);
+  box-shadow: 10px 10px 0 var(--accent-pink-dark);
+  padding: 0 0 22px;
+  overflow: hidden;
+  color: var(--ink);
+}
+
+.page--inner .card.survey.st-shop-card:hover {
+  transform: none;
+  box-shadow: 10px 10px 0 var(--accent-pink-dark);
+}
+
+.page--inner .card.survey.st-shop-card h2.card-header {
+  margin: 18px 20px 8px;
+  font-family: "Grape Nuts", cursive;
+  font-size: 1.8rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: var(--brown);
+  text-align: left;
+}
+
 .page--inner .card.survey .form {
   gap: 22px;
+  padding: 0 20px;
 }
 
 .page--inner .card.survey .q-cont label,
@@ -2882,9 +2955,10 @@ h2.card-header {
 }
 
 .page--inner .card.survey fieldset {
-  border: 2px solid var(--ink);
+  border: 2px solid var(--accent-green);
   border-radius: 0;
   padding: 14px 16px;
+  background: var(--cream);
 }
 
 .page--inner .card.survey fieldset label {
@@ -2896,12 +2970,49 @@ h2.card-header {
   white-space: normal;
 }
 
+.page--inner .card.survey fieldset label.q-other {
+  align-items: center;
+  gap: 10px;
+}
+
+.page--inner .card.survey fieldset label.q-other input[type="checkbox"] {
+  flex-shrink: 0;
+  width: auto;
+  margin: 0;
+}
+
 .page--inner .card.survey select,
 .page--inner .card.survey textarea {
   background: var(--cream);
   border: 2px solid var(--ink);
   color: var(--ink);
   width: 100%;
+}
+
+.page--inner .card.survey .q-other-input {
+  background: var(--cream);
+  border: 2px solid var(--ink);
+  color: var(--ink);
+  flex: 1 1 200px;
+  min-width: 120px;
+  max-width: 100%;
+  padding: 8px 10px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+@media (max-width: 640px) {
+  .page--inner .card.survey fieldset label.q-other {
+    align-items: flex-start;
+  }
+
+  .page--inner .card.survey .q-other-input {
+    flex: 1 1 100%;
+    width: 100%;
+  }
 }
 
 .page--inner .card.survey select option {
@@ -2916,8 +3027,7 @@ h2.card-header {
 
 @media (max-width: 640px) {
   .page--inner .card.about,
-  .page--inner .card.jobs,
-  .page--inner .card.survey {
+  .page--inner .card.jobs {
     margin-top: 20px;
     padding: 22px 18px 32px !important;
     text-align: left;
@@ -2926,10 +3036,22 @@ h2.card-header {
     box-shadow: 5px 5px 0 var(--ink) !important;
   }
 
-  .page--inner .card.survey h2 {
-    margin-left: 0 !important;
+  .page--inner .card.survey.st-shop-card {
+    margin-top: 20px;
+    padding: 0 0 22px !important;
+    text-align: left;
+    background: var(--cream-deep) !important;
+    border: 8px solid var(--accent-green) !important;
+    box-shadow: 10px 10px 0 var(--accent-pink-dark) !important;
+  }
+
+  .page--inner .card.survey.st-shop-card .form {
+    padding: 0 18px;
+  }
+
+  .page--inner .card.survey.st-shop-card h2.card-header {
+    margin: 18px 18px 8px !important;
     text-align: center;
-    color: var(--brown);
   }
 }
 

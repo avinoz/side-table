@@ -2,16 +2,23 @@
  * Deploy as Web app: Execute as Me, Who has access: Anyone.
  * Set SPREADSHEET_ID. Create tabs named "Survey" and "Email signups" (or edit constants).
  *
- * Survey tab — suggested row 1 headers:
- * receivedAt | drinkerType | drinksOrdered | teasLoved | breakfastItems | lunchItems |
- * cakeFlavors | favoriteShops | dietaryRestrictions | cafeElse | contactInfo | submittedAt
+ * Survey tab — row 1 headers (must match column order in appendRow):
+ * receivedAt | drinksOrdered | drinksOrderedOther | teasLoved | teasLovedOther |
+ * breakfastItems | breakfastItemsOther | lunchItems | lunchItemsOther |
+ * cakeFlavors | cakeFlavorsOther | favoriteShops | dietaryRestrictions |
+ * fastInternetPremium | kidsAreaBother | visitFrequency | visitContext |
+ * cafeElse | contactInfo | submittedAt
  *
- * Email signups tab — suggested row 1 headers:
+ * Email signups tab — row 1 headers:
  * receivedAt | email | submittedAt
  */
 const SPREADSHEET_ID = "YOUR_SHEET_ID";
 const SHEET_SURVEY = "Survey";
 const SHEET_EMAIL = "Email signups";
+
+function joinList(value) {
+  return (value || []).join("; ");
+}
 
 function doPost(e) {
   try {
@@ -36,14 +43,22 @@ function doPost(e) {
       var p = payload;
       sheet.appendRow([
         new Date(),
-        p.drinkerType || "",
-        (p.drinksOrdered || []).join("; "),
-        (p.teasLoved || []).join("; "),
-        (p.breakfastItems || []).join("; "),
-        (p.lunchItems || []).join("; "),
-        (p.cakeFlavors || []).join("; "),
+        joinList(p.drinksOrdered),
+        p.drinksOrderedOther || "",
+        joinList(p.teasLoved),
+        p.teasLovedOther || "",
+        joinList(p.breakfastItems),
+        p.breakfastItemsOther || "",
+        joinList(p.lunchItems),
+        p.lunchItemsOther || "",
+        joinList(p.cakeFlavors),
+        p.cakeFlavorsOther || "",
         p.favoriteShops || "",
         p.dietaryRestrictions || "",
+        p.fastInternetPremium || "",
+        p.kidsAreaBother || "",
+        p.visitFrequency || "",
+        joinList(p.visitContext),
         p.cafeElse || "",
         p.contactInfo || "",
         p.submittedAt || "",

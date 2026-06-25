@@ -92,53 +92,57 @@
         <h1 class="st-display st-display--survey">What <span>do you</span> want on the menu</h1>
       </section>
 
-      <section class="card survey">
+      <section class="card survey st-shop-card">
         <h2 class="card-header">Menu Survey</h2>
         <form id="surveyForm" class="form">
-          <div class="q-cont">
-            <label for="drinkerType">1. What kind of drinker are you?</label>
-            <select id="drinkerType" name="drinkerType">
-              <option value="">—</option>
-              <option value="Tea">Tea</option>
-              <option value="Coffee">Coffee</option>
-              <option value="Sweet drinks">Sweet drinks</option>
-            </select>
-          </div>
-
           <fieldset>
-            <legend>2. Drinks I order most</legend>
+            <legend>1. Drinks I order most <span class="q-hint">(check all that apply)</span></legend>
             <label><input type="checkbox" name="drinksOrdered" value="Drip" /> Drip</label>
+            <label><input type="checkbox" name="drinksOrdered" value="Espresso" /> Espresso</label>
+            <label><input type="checkbox" name="drinksOrdered" value="Americano" /> Americano</label>
             <label><input type="checkbox" name="drinksOrdered" value="Cold brew" /> Cold brew</label>
             <label><input type="checkbox" name="drinksOrdered" value="Latte" /> Latte</label>
             <label><input type="checkbox" name="drinksOrdered" value="Cappuccino" /> Cappuccino</label>
             <label><input type="checkbox" name="drinksOrdered" value="Flat white" /> Flat white</label>
+            <label><input type="checkbox" name="drinksOrdered" value="Tea latte" /> Tea latte</label>
             <label><input type="checkbox" name="drinksOrdered" value="Chai latte" /> Chai latte</label>
             <label><input type="checkbox" name="drinksOrdered" value="Matcha latte" /> Matcha latte</label>
             <label><input type="checkbox" name="drinksOrdered" value="Mocha" /> Mocha</label>
+            <label><input type="checkbox" name="drinksOrdered" value="Hot chocolate" /> Hot chocolate</label>
             <label><input type="checkbox" name="drinksOrdered" value="Syrup coffee" /> Syrup coffee</label>
             <label><input type="checkbox" name="drinksOrdered" value="Refreshing Spritzer" /> Refreshing Spritzer</label>
             <label><input type="checkbox" name="drinksOrdered" value="Protein Shake" /> Protein Shake</label>
             <label><input type="checkbox" name="drinksOrdered" value="Smoothies" /> Smoothies</label>
+            <label class="q-other">
+              <input type="checkbox" name="drinksOrdered" value="Other" data-other-toggle="drinksOrderedOther" />
+              <span class="q-other-text">Other:</span>
+              <input type="text" name="drinksOrderedOther" id="drinksOrderedOther" class="q-other-input" placeholder="tell us" />
+            </label>
           </fieldset>
 
           <fieldset>
-            <legend>3. The teas I love most</legend>
+            <legend>2. The teas I love most <span class="q-hint">(check all that apply)</span></legend>
             <label><input type="checkbox" name="teasLoved" value="English Breakfast" /> English Breakfast</label>
-            <label><input type="checkbox" name="teasLoved" value="Earl Gray" /> Earl Gray</label>
+            <label><input type="checkbox" name="teasLoved" value="Earl Grey" /> Earl Grey</label>
             <label><input type="checkbox" name="teasLoved" value="Pu ehr" /> Pu ehr</label>
             <label><input type="checkbox" name="teasLoved" value="Yunnan Dian Hong" /> Yunnan Dian Hong</label>
             <label><input type="checkbox" name="teasLoved" value="Jasmine" /> Jasmine</label>
             <label><input type="checkbox" name="teasLoved" value="Lapsang" /> Lapsang</label>
-            <label><input type="checkbox" name="teasLoved" value="Camomille" /> Camomille</label>
+            <label><input type="checkbox" name="teasLoved" value="Chamomile" /> Chamomile</label>
             <label><input type="checkbox" name="teasLoved" value="Chrysanthemum" /> Chrysanthemum</label>
             <label><input type="checkbox" name="teasLoved" value="Osmanthus" /> Osmanthus</label>
             <label><input type="checkbox" name="teasLoved" value="Fresh Mint" /> Fresh Mint</label>
             <label><input type="checkbox" name="teasLoved" value="Lemon Balm" /> Lemon Balm</label>
             <label><input type="checkbox" name="teasLoved" value="Hibiscus" /> Hibiscus</label>
+            <label class="q-other">
+              <input type="checkbox" name="teasLoved" value="Other" data-other-toggle="teasLovedOther" />
+              <span class="q-other-text">Other:</span>
+              <input type="text" name="teasLovedOther" id="teasLovedOther" class="q-other-input" placeholder="tell us" />
+            </label>
           </fieldset>
 
           <fieldset>
-            <legend>4. My go-to breakfast food items include</legend>
+            <legend>3. Go-to breakfast foods <span class="q-hint">(check all that apply)</span></legend>
             <label><input type="checkbox" name="breakfastItems" value="Savory Pastry" /> Savory Pastry</label>
             <label><input type="checkbox" name="breakfastItems" value="Sweet Pastry" /> Sweet Pastry</label>
             <label><input type="checkbox" name="breakfastItems" value="Granola" /> Granola</label>
@@ -149,40 +153,54 @@
             <label><input type="checkbox" name="breakfastItems" value="Avocado Toast" /> Avocado Toast</label>
             <label><input type="checkbox" name="breakfastItems" value="Breakfast sandwich" /> Breakfast sandwich</label>
             <label><input type="checkbox" name="breakfastItems" value="Breakfast Burrito" /> Breakfast Burrito</label>
+            <label class="q-other">
+              <input type="checkbox" name="breakfastItems" value="Other" data-other-toggle="breakfastItemsOther" />
+              <span class="q-other-text">Other:</span>
+              <input type="text" name="breakfastItemsOther" id="breakfastItemsOther" class="q-other-input" placeholder="tell us" />
+            </label>
           </fieldset>
 
           <fieldset>
-            <legend>5. The lunch items I order most</legend>
-            <label><input type="checkbox" name="lunchItems" value="Ceasar Salad" /> Ceasar Salad</label>
+            <legend>4. Lunch items I order most <span class="q-hint">(check all that apply)</span></legend>
+            <label><input type="checkbox" name="lunchItems" value="Caesar Salad" /> Caesar Salad</label>
             <label><input type="checkbox" name="lunchItems" value="Cobb Salad" /> Cobb Salad</label>
-            <label><input type="checkbox" name="lunchItems" value="Spring Salad" /> Spring Salad</label>
-            <label><input type="checkbox" name="lunchItems" value="Beet Salad" /> Beet Salad</label>
-            <label><input type="checkbox" name="lunchItems" value="Goat Cheese Salad" /> Goat Cheese Salad</label>
-            <label><input type="checkbox" name="lunchItems" value="Grilled chicken Salad" /> Grilled chicken Salad</label>
+            <label><input type="checkbox" name="lunchItems" value="Grilled Chicken Salad" /> Grilled Chicken Salad</label>
             <label><input type="checkbox" name="lunchItems" value="Caprese Panini" /> Caprese Panini</label>
             <label><input type="checkbox" name="lunchItems" value="Chicken Pesto Panini" /> Chicken Pesto Panini</label>
             <label><input type="checkbox" name="lunchItems" value="Cheesesteak Panini" /> Cheesesteak Panini</label>
             <label><input type="checkbox" name="lunchItems" value="Tuna Melt Panini" /> Tuna Melt Panini</label>
+            <label><input type="checkbox" name="lunchItems" value="Soup" /> Soup</label>
+            <label><input type="checkbox" name="lunchItems" value="Grain Bowl" /> Grain Bowl</label>
+            <label class="q-other">
+              <input type="checkbox" name="lunchItems" value="Other" data-other-toggle="lunchItemsOther" />
+              <span class="q-other-text">Other:</span>
+              <input type="text" name="lunchItemsOther" id="lunchItemsOther" class="q-other-input" placeholder="tell us" />
+            </label>
           </fieldset>
 
           <fieldset>
-            <legend>6. Favorite flavor of cakes</legend>
+            <legend>5. Favorite flavor of cakes <span class="q-hint">(check all that apply)</span></legend>
             <label><input type="checkbox" name="cakeFlavors" value="Tiramisu" /> Tiramisu</label>
             <label><input type="checkbox" name="cakeFlavors" value="German Chocolate" /> German Chocolate</label>
             <label><input type="checkbox" name="cakeFlavors" value="Mango Mousse" /> Mango Mousse</label>
             <label><input type="checkbox" name="cakeFlavors" value="Carrot Cake" /> Carrot Cake</label>
             <label><input type="checkbox" name="cakeFlavors" value="Lemon Ricotta Cake" /> Lemon Ricotta Cake</label>
-            <label><input type="checkbox" name="cakeFlavors" value="Birthday Cake" /> Birthday Cake</label>
+            <label><input type="checkbox" name="cakeFlavors" value="Vanilla Funfetti" /> Vanilla Funfetti</label>
             <label><input type="checkbox" name="cakeFlavors" value="Red Velvet" /> Red Velvet</label>
             <label><input type="checkbox" name="cakeFlavors" value="Crepe Cakes" /> Crepe Cakes</label>
             <label><input type="checkbox" name="cakeFlavors" value="Coconut Chiffon" /> Coconut Chiffon</label>
-            <label><input type="checkbox" name="cakeFlavors" value="Orange-Cardamom Olive" /> Orange-Cardamom Olive</label>
+            <label><input type="checkbox" name="cakeFlavors" value="Orange-Cardamom Olive Oil" /> Orange-Cardamom Olive Oil</label>
             <label><input type="checkbox" name="cakeFlavors" value="Mille Feuille" /> Mille Feuille</label>
             <label><input type="checkbox" name="cakeFlavors" value="Strawberry Shortcake" /> Strawberry Shortcake</label>
+            <label class="q-other">
+              <input type="checkbox" name="cakeFlavors" value="Other" data-other-toggle="cakeFlavorsOther" />
+              <span class="q-other-text">Other:</span>
+              <input type="text" name="cakeFlavorsOther" id="cakeFlavorsOther" class="q-other-input" placeholder="tell us" />
+            </label>
           </fieldset>
 
           <div class="q-cont">
-            <label for="favoriteShops">7. Which Cake or Pastry shops do you love? Any particular flavors?</label>
+            <label for="favoriteShops">6. Which Cake or Pastry shops do you love? Any particular flavors?</label>
             <textarea
               id="favoriteShops"
               name="favoriteShops"
@@ -192,18 +210,59 @@
           </div>
 
           <div class="q-cont">
-            <label for="dietaryRestrictions">8. Any dietary restrictions?</label>
+            <label for="dietaryRestrictions">7. Any dietary restrictions?</label>
             <textarea id="dietaryRestrictions" name="dietaryRestrictions" rows="1" placeholder="Nuts, dairy… or none"></textarea>
           </div>
 
           <div class="q-cont">
-            <label for="cafeElse">9. What else would you want in a cafe?</label>
+            <label for="fastInternetPremium">8. Would you pay extra for dedicated fast internet?</label>
+            <select id="fastInternetPremium" name="fastInternetPremium">
+              <option value="">—</option>
+              <option value="Yes">Yes</option>
+              <option value="Maybe, depending on price">Maybe, depending on price</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+
+          <div class="q-cont">
+            <label for="kidsAreaBother">9. Would you be bothered by a dedicated kids area?</label>
+            <select id="kidsAreaBother" name="kidsAreaBother">
+              <option value="">—</option>
+              <option value="Not at all">Not at all</option>
+              <option value="A little">A little</option>
+              <option value="Yes">Yes</option>
+              <option value="I'd welcome it — I have kids">I'd welcome it — I have kids</option>
+            </select>
+          </div>
+
+          <div class="q-cont">
+            <label for="visitFrequency">10. How often would you visit?</label>
+            <select id="visitFrequency" name="visitFrequency">
+              <option value="">—</option>
+              <option value="Daily">Daily</option>
+              <option value="A few times a week">A few times a week</option>
+              <option value="Weekly">Weekly</option>
+              <option value="A few times a month">A few times a month</option>
+              <option value="Rarely">Rarely</option>
+            </select>
+          </div>
+
+          <fieldset>
+            <legend>11. When you come in, you're usually… <span class="q-hint">(check all that apply)</span></legend>
+            <label><input type="checkbox" name="visitContext" value="Working alone" /> Working alone</label>
+            <label><input type="checkbox" name="visitContext" value="Meeting someone" /> Meeting someone</label>
+            <label><input type="checkbox" name="visitContext" value="Grabbing and going" /> Grabbing and going</label>
+            <label><input type="checkbox" name="visitContext" value="Hanging out with friends" /> Hanging out with friends</label>
+          </fieldset>
+
+          <div class="q-cont">
+            <label for="cafeElse">12. What else would you want in a cafe?</label>
             <textarea id="cafeElse" name="cafeElse" rows="3" placeholder="Wi-Fi, seating, music…"></textarea>
           </div>
 
           <div class="q-cont">
-            <label for="contactInfo">10. Tell us who you are? Email is best but a name would also be great!</label>
-            <textarea id="contactInfo" name="contactInfo" rows="1" placeholder="hello@example.com or your name"></textarea>
+            <label for="contactInfo">13. Want early access when we open?</label>
+            <textarea id="contactInfo" name="contactInfo" rows="1" placeholder="hello@example.com"></textarea>
           </div>
           <div class="center">
             <button type="submit" class="st-btn st-btn--dark">Submit Survey</button>

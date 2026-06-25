@@ -13,10 +13,10 @@ function showSideTableMessage(message, options) {
     overlay.className = "side-table-dialog-overlay";
     overlay.setAttribute("role", "presentation");
     overlay.innerHTML = `
-      <div class="side-table-dialog" role="dialog" aria-modal="true" aria-labelledby="side-table-dialog-title">
-        <h2 id="side-table-dialog-title" class="side-table-dialog-title">Side Table</h2>
+      <div class="side-table-dialog st-modal-card" role="dialog" aria-modal="true" aria-label="Side Table">
+        <img src="./sidetable.png" alt="Side Table" class="side-table-dialog-logo" width="220" height="80" />
         <p class="side-table-dialog-message"></p>
-        <button type="button" class="side-table-dialog-close">OK</button>
+        <button type="button" class="side-table-dialog-close st-btn st-btn--dark">OK</button>
       </div>
     `;
     document.body.appendChild(overlay);
@@ -53,7 +53,7 @@ function showSideTableMessage(message, options) {
 const emailForm = document.getElementById("emailForm");
 const surveyForm = document.getElementById("surveyForm");
 const GOOGLE_SHEETS_WEB_APP_URL =
-  "https://script.google.com/macros/s/AKfycbxrxFOSr92H96h9P6A6aUdGN_KDDBGABK2bAoTO1ZIjImsOBD3PFqgIGPzGba1T5lv0/exec";
+  "https://script.google.com/macros/s/AKfycbyheeymEyC3LeUrGm0L65RWtbnn0YeO30Nyjf8q02vocVvqcugmRLZKa12bYvG3VB0c/exec";
 
 function sheetsEndpointConfigured() {
   return (
@@ -73,7 +73,8 @@ function setSurveySubmitLoading(isLoading) {
       el.setAttribute("aria-live", "polite");
       el.setAttribute("aria-busy", "true");
       el.innerHTML = `
-        <div class="survey-submit-overlay-inner">
+        <div class="survey-submit-overlay-inner st-modal-card">
+          <img src="./sidetable.png" alt="" class="st-modal-logo" width="180" height="64" aria-hidden="true" />
           <div class="survey-submit-spinner" aria-hidden="true"></div>
           <p class="survey-submit-overlay-text">Sending your responses…</p>
         </div>
@@ -110,17 +111,15 @@ if (emailForm) {
 
     if (sheetsEndpointConfigured()) {
       try {
-        const submitResponse = await fetch(GOOGLE_SHEETS_WEB_APP_URL, {
+        // GAS web apps redirect POST → follow-up GET can fail response.ok checks; no-cors fire-and-forget is reliable.
+        await fetch(GOOGLE_SHEETS_WEB_APP_URL, {
           method: "POST",
+          mode: "no-cors",
           headers: {
             "Content-Type": "text/plain;charset=utf-8",
           },
           body: JSON.stringify(payload),
         });
-
-        if (!submitResponse.ok) {
-          throw new Error("Failed to submit email to Google Sheets.");
-        }
       } catch (error) {
         showSideTableMessage(
           "We could not save your email right now. Please try again."
@@ -149,14 +148,22 @@ if (surveyForm) {
 
       const response = {
         submissionType: "survey",
-        drinkerType: (formData.get("drinkerType") || "").toString(),
         drinksOrdered: formData.getAll("drinksOrdered"),
+        drinksOrderedOther: (formData.get("drinksOrderedOther") || "").toString().trim(),
         teasLoved: formData.getAll("teasLoved"),
+        teasLovedOther: (formData.get("teasLovedOther") || "").toString().trim(),
         breakfastItems: formData.getAll("breakfastItems"),
+        breakfastItemsOther: (formData.get("breakfastItemsOther") || "").toString().trim(),
         lunchItems: formData.getAll("lunchItems"),
+        lunchItemsOther: (formData.get("lunchItemsOther") || "").toString().trim(),
         cakeFlavors: formData.getAll("cakeFlavors"),
+        cakeFlavorsOther: (formData.get("cakeFlavorsOther") || "").toString().trim(),
         favoriteShops: (formData.get("favoriteShops") || "").toString().trim(),
         dietaryRestrictions: (formData.get("dietaryRestrictions") || "").toString().trim(),
+        fastInternetPremium: (formData.get("fastInternetPremium") || "").toString(),
+        kidsAreaBother: (formData.get("kidsAreaBother") || "").toString(),
+        visitFrequency: (formData.get("visitFrequency") || "").toString(),
+        visitContext: formData.getAll("visitContext"),
         cafeElse: (formData.get("cafeElse") || "").toString().trim(),
         contactInfo: (formData.get("contactInfo") || "").toString().trim(),
         submittedAt: new Date().toISOString(),
@@ -164,17 +171,14 @@ if (surveyForm) {
 
       if (sheetsEndpointConfigured()) {
         try {
-          const submitResponse = await fetch(GOOGLE_SHEETS_WEB_APP_URL, {
+          await fetch(GOOGLE_SHEETS_WEB_APP_URL, {
             method: "POST",
+            mode: "no-cors",
             headers: {
               "Content-Type": "text/plain;charset=utf-8",
             },
             body: JSON.stringify(response),
           });
-
-          if (!submitResponse.ok) {
-            throw new Error("Failed to submit survey to Google Sheets.");
-          }
         } catch (error) {
           showSideTableMessage(
             "Darn, we're having some technical difficulties. Please try again."
@@ -199,6 +203,30 @@ if (surveyForm) {
     }
   });
 }
+
+(function initSurveyOtherToggles() {
+  document.querySelectorAll("[data-other-toggle]").forEach((checkbox) => {
+    const input = document.getElementById(checkbox.dataset.otherToggle);
+    if (!input) return;
+
+    checkbox.addEventListener("change", () => {
+      if (!checkbox.checked) input.value = "";
+      if (checkbox.checked) input.focus();
+    });
+
+    input.addEventListener("focus", () => {
+      checkbox.checked = true;
+    });
+
+    input.addEventListener("input", () => {
+      checkbox.checked = input.value.trim().length > 0;
+    });
+
+    input.addEventListener("blur", () => {
+      if (!input.value.trim()) checkbox.checked = false;
+    });
+  });
+})();
 
 (function initSiteNavDrawer() {
   const toggle = document.getElementById("siteNavToggle");
