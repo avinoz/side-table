@@ -961,6 +961,14 @@ html.js-gsap-active .page--home .reveal-h2 {
   transition: none;
 }
 
+html.js-gsap-active .st-hero-copy .st-kicker,
+html.js-gsap-active .st-hero-copy .st-lede,
+html.js-gsap-active .st-hero-copy .st-hero-actions,
+html.js-gsap-active .st-hero-copy .split-inner {
+  opacity: 1;
+  transform: none;
+}
+
 html.js-gsap-active .page--home .reveal-img img {
   clip-path: inset(0 0 0 0);
   transition: none;
